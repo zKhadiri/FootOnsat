@@ -1,5 +1,7 @@
 #!/bin/sh
 
+#wget -q "--no-check-certificate" http://raw.githubusercontent.com/ziko-ZR1/FootOnsat/main/Download/install.sh -O - | /bin/sh
+
 
 if [ -f /etc/apt/apt.conf ] ; then
     echo "#########################################################"
