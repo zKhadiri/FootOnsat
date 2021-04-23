@@ -39,7 +39,7 @@ class Satfinder(ScanSetup, ServiceScan):
         self.is_id_boolEntry = None
         self.t2mi_plp_id_boolEntry = None
         ScanSetup.__init__(self, session)
-        self.setTitle(_('LiveOnsat Signal Finder'))
+        self.setTitle(_('FootOnsat Signal Finder'))
         self['introduction'].setText(_('Press OK to scan'))
         self['Frontend'] = FrontendStatus(frontend_source=lambda : self.frontend, update_interval=100)
         self['actions'] = ActionMap(['SetupActions', 'ColorActions'], {'save': self.keyGoScan, 
@@ -127,7 +127,7 @@ class Satfinder(ScanSetup, ServiceScan):
         return
 
     def createSetup(self):
-        self.scan_type = ConfigSelection(default='single_transponder', choices=[('single_transponder', _('LiveOnsat transponder'))])
+        self.scan_type = ConfigSelection(default='single_transponder', choices=[('single_transponder', _('FootOnsat transponder'))])
         ScanSetup.createSetup(self)
         tlist = self['config'].getList()
         for x in (self.scan_networkScan, self.scan_clearallservices, self.scan_onlyfree):
