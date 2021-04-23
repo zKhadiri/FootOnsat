@@ -94,7 +94,7 @@ else
     exit 1
 fi
 
-wget -q "--no-check-certificate" "https://github.com/ziko-ZR1/FootOnsat/blob/main/Download/enigma2-plugin-extensions-footonsat_1.0_all.ipk?raw=true" -O "/tmp/enigma2-plugin-extensions-footonsat_1.0_all.ipk";
+wget "--no-check-certificate" "https://github.com/ziko-ZR1/FootOnsat/blob/main/Download/enigma2-plugin-extensions-footonsat_1.0_all.ipk?raw=true" -O "/tmp/enigma2-plugin-extensions-footonsat_1.0_all.ipk";
 
 opkg install /tmp/enigma2-plugin-extensions-footonsat_1.0_all.ipk
 
