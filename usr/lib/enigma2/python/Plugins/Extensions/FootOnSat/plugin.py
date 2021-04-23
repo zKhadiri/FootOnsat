@@ -4,6 +4,7 @@ from Plugins.Extensions.FootOnSat.ui.launcher import FootOnsatLauncher
 from enigma import addFont
 
 addFont("/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/fonts/miso-bold.ttf", "Myfont", 100, 1)
+addFont("/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/fonts/font_default.otf", "ArabicFont", 100, 1)
 
 def main(session, **kwargs):
     session.open(FootOnsatLauncher)
