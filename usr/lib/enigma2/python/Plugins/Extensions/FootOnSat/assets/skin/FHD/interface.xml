@@ -1,0 +1,22 @@
+<screen name="footonsat" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder" title="FootOnSat">
+    <ePixmap position="0,0" zPosition="-1" size="1920,1080" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/bglist.png" alphatest="blend" />
+    <ePixmap position="0,0" zPosition="1" size="1920,70" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/infobar_top.png" alphatest="blend" />
+    <ePixmap position="1330,586" zPosition="5" size="60,60" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/channel.png" alphatest="blend" />
+    <ePixmap position="1330,670" zPosition="5" size="60,60" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/satellite.png" alphatest="blend" />
+    <ePixmap position="1335,754" zPosition="5" size="50,50" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/freq.png" alphatest="blend" />
+    <ePixmap position="1330,855" zPosition="5" size="60,50" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/smartcard.png" alphatest="blend" />
+    <widget name="compet" font="Regular;35" foregroundColor="#ffe4e1" backgroundColor="#16000000" position="55,20" size="500,60" transparent="1" zPosition="5"/>
+    <widget name="channel" position="1450,600" size="385,39" font="Regular;25" halign="left" backgroundColor="#101c1c1c" zPosition="5" transparent="1" />
+    <widget name="sat" position="1450,684" size="385,39" font="Regular;25" halign="left" backgroundColor="#101c1c1c" zPosition="5" transparent="1" />
+    <widget name="freq" position="1450,765" size="385,39" font="Regular;25" halign="left" backgroundColor="#101c1c1c" zPosition="5" transparent="1" />
+    <widget name="enc" position="1450,860" size="385,40" font="Regular;25" halign="left" backgroundColor="#101c1c1c" zPosition="5" transparent="1" />
+    <widget name="key_blue" position="1550,900" size="385,40" font="Regular;28" halign="left" foregroundColor="#1E90FF" backgroundColor="#0000FF" zPosition="5" transparent="1" />
+    <widget name="list1" position="57,145" size="1220,700" scrollbarMode="showNever" selectionPixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/button1180x45.png"  enableWrapAround="1"  transparent="1" zPosition="2" /> 
+    <widget name="list2" position="1315,150" size="560,350" scrollbarMode="showNever" selectionPixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/list2selectionpixmap.png"  enableWrapAround="1" transparent="1" zPosition="3" />
+    <widget font="Regular;35" foregroundColor="#00ffffff" backgroundColor="#16000000" halign="center" position="center,15" render="Label" size="143,52" source="global.CurrentTime" transparent="1" valign="center" zPosition="5">
+        <convert type="ClockToText">Default</convert>
+    </widget>
+    <widget name="counter" foregroundColor="#00ffffff" backgroundColor="#16000000" position="655,875" size="143,52" font="Regular;28" transparent="1" valign="center" zPosition="5" />
+    <ePixmap position="575,885" zPosition="6" size="32,32" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/spin-down.png" alphatest="blend" />
+    <ePixmap position="758,885" zPosition="6" size="32,32" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/spin-up.png" alphatest="blend" />
+</screen>
