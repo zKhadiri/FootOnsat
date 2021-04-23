@@ -66,7 +66,7 @@ class Satfinder(ScanSetup, ServiceScan):
 		self.timer.callback.append(self.updateFrontendStatus)
 
 		ScanSetup.__init__(self, session)
-		self.setTitle(_("LiveOnsat Signal finder"))
+		self.setTitle(_("FootOnsat Signal finder"))
 		self["Frontend"] = FrontendStatus(
 			frontend_source=lambda: self.frontend, update_interval=100)
 
@@ -236,7 +236,7 @@ class Satfinder(ScanSetup, ServiceScan):
 
 	def createConfig(self, foo):
 		self.tuning_type = ConfigSelection(default='single_transponder', choices=[
-			('single_transponder', _('LiveOnsat transponder'))])
+			('single_transponder', _('FootOnsat transponder'))])
 		self.orbital_position = self.sat
 		ScanSetup.createConfig(self, self.frontendData)
 		self.scan_sat.system.value = eDVBFrontendParametersSatellite.System_DVB_S2
