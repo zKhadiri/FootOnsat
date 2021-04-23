@@ -60,7 +60,6 @@ class FootOnSat(Screen):
 			"cancel": self.exit,
 		}, -1)
 		self.link = link
-		self.container = eConsoleAppContainer()
 		self["counter"] = Label()
 		self["compet"] = Label()
 		titles = {"today":"Match Today","championsleague":"UEFA Champions League","europaleague":"UEFA Europa League","premierleague":"Premier League"
