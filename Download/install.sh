@@ -4,7 +4,7 @@
 
 
 if [ -f /etc/apt/apt.conf ] ; then
-    echo "#########################################################"
+    	echo "#########################################################"
 	echo "#       this image is not supported                     #"
 	echo "#########################################################"
     exit 1
@@ -52,16 +52,16 @@ else
     if [ $PYTHON = "PY2" ]; then 
         echo "========================================================================"
         echo " Downloading $SQLITE3 , $PYSIX ......"
-        opkg install python-sqlite3
+        opkg install $SQLITE3
         echo "========================================================================"
-        opkg install python-six
+        opkg install $PYSIX
         echo "========================================================================"
     elif [ $PYTHON = "PY3" ]; then 
         echo "========================================================================"
         echo " Downloading $SQLITE3 , $PYSIX ......"
-        opkg install python3-sqlite3
+        opkg install $SQLITE3
         echo "========================================================================"
-        opkg install python3-six
+        opkg install $PYSIX
         echo "========================================================================"
     fi
 
