@@ -4,6 +4,7 @@
 
 PLUGIN_PATH = '/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat'
 DB_PATH = '/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/db'
+TMP_DB = /tmp/footonsat.db
 
 if [ -f /etc/apt/apt.conf ] ; then
     STATUS='/var/lib/dpkg/status'
@@ -18,7 +19,6 @@ if [ -f $PLUGIN_PATH ]; then
     if [ -f '/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/db/footonsat.db' ]; then
         echo "Keep old db...."
         cp -a /usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/db/footonsat.db /tmp
-        OLD_DB = /tmp/footonsat.db
     fi
 
     echo "Remove old version."
