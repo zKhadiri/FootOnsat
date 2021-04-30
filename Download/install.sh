@@ -2,14 +2,31 @@
 
 #wget -q "--no-check-certificate" http://raw.githubusercontent.com/ziko-ZR1/FootOnsat/main/Download/install.sh -O - | /bin/sh
 
+PLUGIN_PATH = '/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat'
 
 if [ -f /etc/apt/apt.conf ] ; then
-    	echo "#########################################################"
-	echo "#       this image is not supported                     #"
-	echo "#########################################################"
-    exit 1
+    STATUS='/var/lib/dpkg/status'
+    OS='DreamOS'
 elif [ -f /etc/opkg/opkg.conf ] ; then
    STATUS='/var/lib/opkg/status'
+   OS='Opensource'
+fi
+
+if [ -f $PLUGIN_PATH ]; then
+
+    if [ -f '/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/db/footonsat.db' ]; then
+        echo "Keep old db...."
+        cp -a /usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/db/footonsat.db /tmp
+        OLD_DB = /tmp/footonsat.db
+    fi
+
+    echo "Remove old version."
+    if [ $OS = "Opensource" ]; then
+        opkg remove enigma2-plugin-extensions-footonsat
+    else
+       apt-get purge --auto-remove enigma2-plugin-extensions-footonsat
+    fi
+
 fi
 
 if [ -d /usr/lib/python3.8 ] ; then
@@ -39,22 +56,42 @@ fi
 if [ $sqlite = "Installed" -a $six = "Installed" -a $aplay = "Installed" ]; then
      echo ""
 else
-    echo "=========================================================================="
-    echo "Some Depends Need to Be downloaded From Feeds ...."
-    echo "=========================================================================="
-    echo "Opkg Update ..."
-    echo "========================================================================"
-    opkg update
-    echo "========================================================================"
-    echo " Downloading alsa-utils-aplay ......"
-    opkg install alsa-utils-aplay
-    echo "========================================================================"
-    echo "========================================================================"
-    echo " Downloading $SQLITE3 , $PYSIX ......"
-    opkg install $SQLITE3
-    echo "========================================================================"
-    opkg install $PYSIX
-    echo "========================================================================"
+
+    if [ $OS = "Opensource" ]; then
+        echo "=========================================================================="
+        echo "Some Depends Need to Be downloaded From Feeds ...."
+        echo "=========================================================================="
+        echo "Opkg Update ..."
+        echo "========================================================================"
+        opkg update
+        echo "========================================================================"
+        echo " Downloading alsa-utils-aplay ......"
+        opkg install alsa-utils-aplay
+        echo "========================================================================"
+        echo "========================================================================"
+        echo " Downloading $SQLITE3 , $PYSIX ......"
+        opkg install $SQLITE3
+        echo "========================================================================"
+        opkg install $PYSIX
+        echo "========================================================================"
+    else
+        echo "=========================================================================="
+        echo "Some Depends Need to Be downloaded From Feeds ...."
+        echo "=========================================================================="
+        echo "apt Update ..."
+        echo "========================================================================"
+        apt-get update
+        echo "========================================================================"
+        echo " Downloading alsa-utils-aplay ......"
+        apt-get install alsa-utils-aplay -y
+        echo "========================================================================"
+        echo "========================================================================"
+        echo " Downloading $SQLITE3 , $PYSIX ......"
+        apt-get install $SQLITE3 -y
+        echo "========================================================================"
+        apt-get install $PYSIX -y
+        echo "========================================================================"
+    fi
 
 
 fi
@@ -86,9 +123,23 @@ else
     exit 1
 fi
 
-wget "--no-check-certificate" "https://github.com/ziko-ZR1/FootOnsat/blob/main/Download/enigma2-plugin-extensions-footonsat_1.0_all.ipk?raw=true" -O "/tmp/enigma2-plugin-extensions-footonsat_1.0_all.ipk";
+if [ $OS = "Opensource" ]; then
+    wget "--no-check-certificate" "https://github.com/ziko-ZR1/FootOnsat/blob/main/Download/enigma2-plugin-extensions-footonsat_1.1_all.ipk?raw=true" -O "/tmp/enigma2-plugin-extensions-footonsat_1.1_all.ipk";
+    opkg install /tmp/enigma2-plugin-extensions-footonsat_1.1_all.ipk
+    rm -f /tmp/enigma2-plugin-extensions-footonsat_1.1_all.ipk
+else
+    wget "--no-check-certificate" "https://github.com/ziko-ZR1/FootOnsat/blob/main/Download/enigma2-plugin-extensions-footonsat_1.1.deb?raw=true" -O "/tmp/enigma2-plugin-extensions-footonsat_1.1.deb";
+    opkg install /tmp/enigma2-plugin-extensions-footonsat_1.1.deb
+    rm -f /tmp/enigma2-plugin-extensions-footonsat_1.1.deb
+fi
 
-opkg install /tmp/enigma2-plugin-extensions-footonsat_1.0_all.ipk
+if [ -f $PLUGIN_PATH  ]; then
+    if [ -f $OLD_DB ]; then
+        $PLUGIN_PATH +='/db'
+        cp -a $OLD_DB $PLUGIN_PATH
+        rm -f $OLD_DB
+    fi
+fi
 
 echo ""
 echo "#########################################################"
