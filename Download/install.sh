@@ -135,9 +135,9 @@ else
 fi
 
 if [ -f $PLUGIN_PATH  ]; then
-    if [ -f $OLD_DB ]; then
-        cp -a $OLD_DB $DB_PATH
-        rm -f $OLD_DB
+    if [ -f $TMP_DB ]; then
+        cp -a $TMP_DB $DB_PATH
+        rm -f $TMP_DB
     fi
 fi
 
