@@ -13,7 +13,7 @@
             "banner": "j1-league"
         },
         {
-            "label": "caf",
+            "label": "caf african",
             "banner": "caf"
         },
         {
@@ -197,6 +197,10 @@
             "banner": "Danish-Superliga"
         },
         {
+            "label": "danish superliga",
+            "banner": "Danish-Superliga"
+        },
+        {
             "label": "uefa champions league",
             "banner": "champions-league"
         },
@@ -235,6 +239,50 @@
         {
             "label": "major league soccer",
             "banner": "usa-mls-logo"
+        },
+        {
+            "label": "brazilian paulista a1",
+            "banner": "Brazilian-Serie-A"
+        },
+        {
+            "label": "concacaf",
+            "banner": "sccl_digital_generic_hd"
+        },
+        {
+            "label": "albanian superliga",
+            "banner": "Albanian-Kategoria-Superiore-Logofhd"
+        },
+        {
+            "label": "english w/super league",
+            "banner": "logo-wslfhd"
+        },
+        {
+            "label": "cypriot 1. division",
+            "banner": "Cypriot-First-Division-Logofhd"
+        },
+        {
+            "label": "mexican liga mx",
+            "banner": "Mexican-Liga-MX-Logofhd"
+        },
+        {
+            "label": "moroccan botola 1",
+            "banner": "botolafhd"
+        },
+        {
+            "label": "egyptian premier league",
+            "banner": "download_7fhd"
+        },
+        {
+            "label": "bahraini premiere league",
+            "banner": "Nasser-bin-Hamad-Premier-Leaguefhd"
+        },
+        {
+            "label": "saudi division 1",
+            "banner": "saudi_premier_league_logo_afhd"
+        },
+        {
+            "label": "kuwaiti premier league",
+            "banner": "kuwaiti_fhd"
         }
     ]
 }

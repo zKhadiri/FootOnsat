@@ -1,23 +1,51 @@
 import os, re, unicodedata
 from Renderer import Renderer
-from enigma import ePixmap, eServiceReference
+from enigma import ePixmap, eServiceReference , eEnv
 from ServiceReference import ServiceReference
-from Tools.Alternatives import GetWithAlternative
-from Tools.Directories import pathExists, resolveFilename
+# from Tools.Alternatives import GetWithAlternative
+from enigma import eServiceCenter, eServiceReference
+from Tools.Directories import pathExists, resolveFilename , SCOPE_SKIN_IMAGE
 try :
-    from Tools.Directories import SCOPE_ACTIVE_SKIN
+	from Tools.Directories import SCOPE_ACTIVE_SKIN
 except ImportError:
-    from Tools.Directories import SCOPE_CURRENT_SKIN as SCOPE_ACTIVE_SKIN
+	from Tools.Directories import SCOPE_CURRENT_SKIN as SCOPE_ACTIVE_SKIN
 from Components.Harddisk import harddiskmanager
 import six, sys
 
+
+def getServiceRef(service):
+	if isinstance(service, eServiceReference):
+		return service.ref if hasattr(service, "ref") else service
+	elif isinstance(service, str):
+		return eServiceReference(service)
+	else:
+		return eServiceReference()
+
+def getAlternativeChannels(service):
+	alternativeServices = eServiceCenter.getInstance().list(getServiceRef(service))
+	return alternativeServices and alternativeServices.getContent("S", True)
+
+def GetWithAlternative(service):
+	service = getServiceRef(service)
+	if service.type == 0 and service.flags == 134:
+		channels = getAlternativeChannels(service)
+		if channels:
+			return channels[0]
+	return service.toString()
+
 class PiconLocator:
-	def __init__(self, piconDirectories = ['picon']):
+	def __init__(self, piconDirectories = ['picon','picon_220x132']):
 		harddiskmanager.on_partition_list_change.append(self.__onPartitionChange)
 		self.piconDirectories = piconDirectories
 		self.activePiconPath = None
 		self.searchPaths = []
-		for mp in ('/usr/share/enigma2/', '/'):
+		searchPaths = ('/data/%s/', eEnv.resolve('${datadir}/enigma2/%s/'),
+				'/media/cf/%s/',
+				'/media/usb/%s/',
+				'/media/sdcard/%s/',
+				'/usr/share/enigma2/',
+				'/',)
+		for mp in (searchPaths,):
 			self.__onMountpointAdded(mp)
 		for part in harddiskmanager.getMountedPartitions():
 			self.__onMountpointAdded(part.mountpoint)
@@ -144,6 +172,8 @@ class FootPicon(Renderer):
 				pngname = piconLocator.getPiconName(self.source.text)
 				if not pathExists(pngname): # no picon for service found
 					pngname = self.defaultpngname
+					if not pathExists(pngname):
+						pngname = resolveFilename(SCOPE_SKIN_IMAGE, "skin_default/picon_default.png")
 				if self.pngname != pngname:
 					if pngname:
 						self.instance.setScale(1)
