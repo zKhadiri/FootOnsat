@@ -14,7 +14,7 @@ elif [ -f /etc/opkg/opkg.conf ] ; then
    OS='Opensource'
 fi
 
-if [ -f $PLUGIN_PATH ]; then
+if [ -d $PLUGIN_PATH ]; then
 
     if [ -f '/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/db/footonsat.db' ]; then
         echo "Keep old db...."
@@ -134,7 +134,7 @@ else
     rm -f /tmp/enigma2-plugin-extensions-footonsat_1.1.deb
 fi
 
-if [ -f $PLUGIN_PATH  ]; then
+if [ -d $PLUGIN_PATH  ]; then
     if [ -f $TMP_DB ]; then
         cp -a $TMP_DB $DB_PATH
         rm -f $TMP_DB
