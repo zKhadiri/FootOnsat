@@ -3,6 +3,7 @@
 #wget -q "--no-check-certificate" https://raw.githubusercontent.com/ziko-ZR1/FootOnsat/main/Download/install.sh -O - | /bin/sh
 
 PLUGIN_PATH = '/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat'
+DB_PATH = '/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/db'
 
 if [ -f /etc/apt/apt.conf ] ; then
     STATUS='/var/lib/dpkg/status'
@@ -135,8 +136,7 @@ fi
 
 if [ -f $PLUGIN_PATH  ]; then
     if [ -f $OLD_DB ]; then
-        $PLUGIN_PATH +='/db'
-        cp -a $OLD_DB $PLUGIN_PATH
+        cp -a $OLD_DB $DB_PATH
         rm -f $OLD_DB
     fi
 fi
