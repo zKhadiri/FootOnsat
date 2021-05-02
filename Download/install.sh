@@ -30,13 +30,13 @@ if [ -d $PLUGIN_PATH ]; then
 
 fi
 
-if [ -d /usr/lib/python3.8 ] ; then
-   echo "Python3"
+if python --version 2>&1 | grep -q '^Python 3\.'; then
+   echo "You have Python3 image"
    PYTHON='PY3'
    SQLITE3='python3-sqlite3'
    PYSIX='python3-six'
 else
-   echo "Python2"
+   echo "You have Python2 image"
    PYTHON='PY2'
    SQLITE3='python-sqlite3'
    PYSIX='python-six'
