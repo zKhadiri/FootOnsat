@@ -337,24 +337,28 @@ class FootOnSat(Screen):
 			self["list2"].l.setItemHeight(50)
 			self["list2"].l.setFont(0, gFont('Regular', 30))
 		index = self['list1'].getSelectionIndex()
-		self.match = self.matches[index][0]
-		for data in self.js['footonsat']:
-			try:
-				if data['related_to'] == self.match:
-					list.append((str(data['channel']), str(data['sat']), str(data['freq']), str(data['encry']), str(data['link'])))
-					if isHD():
-						res.append(MultiContentEntryText(pos=(0, 0), size=(0, 0), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER |RT_WRAP, text='', color=16753920, color_sel=15657130, border_width=3, border_color=806544))
-						res.append(MultiContentEntryText(pos=(7, 6), size=(510, 36), font=0, color=16777215, color_sel=16777215,backcolor_sel=None, flags=RT_VALIGN_CENTER | RT_HALIGN_LEFT, text=str(data['channel'])))
-					else:
-						res.append(MultiContentEntryText(pos=(0, 0), size=(0, 0), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text='', color=16753920, color_sel=15657130, border_width=3, border_color=806544))
-						res.append(MultiContentEntryText(pos=(7, 6), size=(510, 40), font=0, color=16777215, color_sel=16777215,backcolor_sel=None, flags=RT_VALIGN_CENTER | RT_HALIGN_LEFT, text=str(data['channel'])))
-					gList.append(res)
-					res = []
-			except KeyError:
-				pass
-		self["list2"].setList([])
-		self["list2"].setList(gList)
-		self.channelData = list
+		try:
+			self.match = self.matches[index][0]
+			for data in self.js['footonsat']:
+				try:
+					if data['related_to'] == self.match:
+						list.append((str(data['channel']), str(data['sat']), str(data['freq']), str(data['encry']), str(data['link'])))
+						if isHD():
+							res.append(MultiContentEntryText(pos=(0, 0), size=(0, 0), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER |RT_WRAP, text='', color=16753920, color_sel=15657130, border_width=3, border_color=806544))
+							res.append(MultiContentEntryText(pos=(7, 6), size=(510, 36), font=0, color=16777215, color_sel=16777215,backcolor_sel=None, flags=RT_VALIGN_CENTER | RT_HALIGN_LEFT, text=str(data['channel'])))
+						else:
+							res.append(MultiContentEntryText(pos=(0, 0), size=(0, 0), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text='', color=16753920, color_sel=15657130, border_width=3, border_color=806544))
+							res.append(MultiContentEntryText(pos=(7, 6), size=(510, 40), font=0, color=16777215, color_sel=16777215,backcolor_sel=None, flags=RT_VALIGN_CENTER | RT_HALIGN_LEFT, text=str(data['channel'])))
+						gList.append(res)
+						res = []
+				except KeyError:
+					pass
+			self["list2"].setList([])
+			self["list2"].setList(gList)
+			self.channelData = list
+		except Exception as error:
+			print('No date found')
+			
 
 	def updateChannelData(self):
 		if len(self.channelData) > 0:
