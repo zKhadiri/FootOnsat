@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #wget -q "--no-check-certificate" https://raw.githubusercontent.com/ziko-ZR1/FootOnsat/main/Download/install.sh -O - | /bin/sh
-
+VERSION=1.2
 PLUGIN_PATH='/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat'
 DB_PATH='/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/db'
 TMP_DB='/tmp/footonsat.db'
@@ -125,11 +125,11 @@ else
 fi
 
 if [ $OS = "Opensource" ]; then
-    wget "--no-check-certificate" "https://github.com/ziko-ZR1/FootOnsat/blob/main/Download/enigma2-plugin-extensions-footonsat_1.1_all.ipk?raw=true" -O "/tmp/enigma2-plugin-extensions-footonsat_1.1_all.ipk";
+    wget "--no-check-certificate" "https://github.com/ziko-ZR1/FootOnsat/blob/main/Download/enigma2-plugin-extensions-footonsat_$VERSION_all.ipk?raw=true" -O "/tmp/enigma2-plugin-extensions-footonsat_1.1_all.ipk";
     opkg install /tmp/enigma2-plugin-extensions-footonsat_1.1_all.ipk
     rm -f /tmp/enigma2-plugin-extensions-footonsat_1.1_all.ipk
 else
-    wget "--no-check-certificate" "https://github.com/ziko-ZR1/FootOnsat/blob/main/Download/enigma2-plugin-extensions-footonsat_1.1.deb?raw=true" -O "/tmp/enigma2-plugin-extensions-footonsat_1.1.deb";
+    wget "--no-check-certificate" "https://github.com/ziko-ZR1/FootOnsat/blob/main/Download/enigma2-plugin-extensions-footonsat_$VERSION.deb?raw=true" -O "/tmp/enigma2-plugin-extensions-footonsat_1.1.deb";
     dpkg -i --force-overwrite /tmp/enigma2-plugin-extensions-footonsat_1.1.deb; apt-get install -f -y
     rm -f /tmp/enigma2-plugin-extensions-footonsat_1.1.deb
 fi
