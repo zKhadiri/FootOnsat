@@ -100,15 +100,14 @@ class FootOnSat(Screen):
 				self["list1"].l.setFont(0, gFont('Regular', 28))
 			for i in range(0, len(self.matches)):
 				match = self.matches[i][0]
-				time = self.matches[i][1]
+				match_date = self.matches[i][1]
 				compet = self.matches[i][2]
 				team1 = self.matches[i][3]
 				team2 = self.matches[i][4]
-				date = self.matches[i][5]
 				flagTeam1 = resolveFilename(SCOPE_PLUGINS, "Extensions/FootOnSat/assets/flags/{}.png".format(team1))
 				flagTeam2 = resolveFilename(SCOPE_PLUGINS, "Extensions/FootOnSat/assets/flags/{}.png".format(team2))
 				banner = FootOnSat.setCompet(compet.lower())
-				time = self.getTime(time)
+				match_date = self.getTime(match_date)
 				if not fileExists(flagTeam1):
 					flagTeam1 = resolveFilename(SCOPE_PLUGINS, "Extensions/FootOnSat/assets/flags/default.png")
 				if not fileExists(flagTeam2):
@@ -124,7 +123,7 @@ class FootOnSat(Screen):
 					res.append(MultiContentEntryPixmapAlphaBlend(pos=(50, 9), size=(190, 100), png=loadPNG(banner)))
 					res.append(MultiContentEntryPixmapAlphaBlend(pos=(-27, 32), size=(70, 50), png=loadPNG(notif)))
 					res.append(MultiContentEntryText(pos=(290, 40), size=(450, 36), font=0, color=16777215,color_sel=16777215, backcolor_sel=None, flags=RT_VALIGN_CENTER | RT_HALIGN_LEFT, text=str(match)))
-					res.append(MultiContentEntryText(pos=(250, 80), size=(450, 36), font=0, color=16777215, color_sel=16777215,backcolor_sel=None, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text="Kick-off : "+str(time)+' - '+date))
+					res.append(MultiContentEntryText(pos=(250, 80), size=(450, 36), font=0, color=16777215, color_sel=16777215,backcolor_sel=None, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text="Kick-off : "+str(match_date)))
 					res.append(MultiContentEntryText(pos=(250, 2), size=(785, 36), font=0, color=16777215,color_sel=16777215, backcolor_sel=None, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text=str(compet)))
 				else:
 					res.append(MultiContentEntryText(pos=(0, 0), size=(0, 0), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER |RT_WRAP, text='', color=16753920, color_sel=15657130, border_width=3, border_color=806544))
@@ -133,7 +132,7 @@ class FootOnSat(Screen):
 					res.append(MultiContentEntryPixmapAlphaBlend(pos=(65, 6), size=(320, 163), png=loadPNG(banner)))
 					res.append(MultiContentEntryPixmapAlphaBlend(pos=(-20, 63), size=(70, 50), png=loadPNG(notif)))
 					res.append(MultiContentEntryText(pos=(467, 66), size=(570, 36), font=0, color=16777215,color_sel=16777215, backcolor_sel=None, flags=RT_VALIGN_CENTER | RT_HALIGN_LEFT, text=str(match)))
-					res.append(MultiContentEntryText(pos=(420, 120), size=(450, 36), font=0, color=16777215, color_sel=16777215,backcolor_sel=None, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text="Kick-off : "+str(time)+' - '+date))
+					res.append(MultiContentEntryText(pos=(420, 120), size=(450, 36), font=0, color=16777215, color_sel=16777215,backcolor_sel=None, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text="Kick-off : "+str(match_date)))
 					res.append(MultiContentEntryText(pos=(420, 15), size=(785, 36), font=0, color=16777215,color_sel=16777215, backcolor_sel=None, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text=str(compet)))
 				gList.append(res)
 				res = []
@@ -205,31 +204,29 @@ class FootOnSat(Screen):
 			index = self['list1'].getSelectionIndex()
 			if PY3:
 				match = self.matches[index][0]
-				time = self.getTime(self.matches[index][1])
-				dt = time+' - '+self.matches[index][5]
+				match_date = self.getTime(self.matches[index][1])
 				compet = self.matches[index][2]
 				flag1 = self.matches[index][3]
 				flag2 = self.matches[index][4]
 			else:
 				match = self.matches[index][0].decode('utf8')
-				time = self.getTime(self.matches[index][1])
-				dt = time+' - '+self.matches[index][5].decode('utf8')
+				match_date = self.getTime(self.matches[index][1].decode('utf8'))
 				compet = self.matches[index][2].decode('utf8')
 				flag1 = self.matches[index][3].decode('utf8')
 				flag2 = self.matches[index][4].decode('utf8')
 
-			if datetime.strptime(dt, "%H:%M - %Y-%m-%d") > datetime.now():
+			if datetime.strptime(match_date, "%H:%M - %Y-%m-%d") > datetime.now():
 				if self.checkIfexist(match):
 					with connect(DB_PATH) as conn:
 						cur = conn.cursor()
 						cur.execute("DELETE FROM LIVE_NOTIF WHERE MATCH = ?", (match,))
 				else:
-					if not self.sameDate(dt):
+					if not self.sameDate(match_date):
 						with connect(DB_PATH) as conn:
 							cur = conn.cursor()
-							first_notif, message = self.setFirstNotifTime(dt)
+							first_notif, message = self.setFirstNotifTime(match_date)
 							cur.execute("INSERT INTO LIVE_NOTIF(MATCH,COMPET,DATE,TEAM1_FLAG,TEAM2_FLAG,FIRST_NOTIF,FIRST_NOTIF_STATUS,LIVE_NOTIF_STATUS,MESSAGE) values (?,?,?,?,?,?,?,?,?)", (
-								match, compet, dt, flag1, flag2, first_notif, "Waiting", "Waiting", message,))
+								match, compet, match_date, flag1, flag2, first_notif, "Waiting", "Waiting", message,))
 				self.iniMenu()
 
 	def setFirstNotifTime(self, dt):
@@ -270,16 +267,16 @@ class FootOnSat(Screen):
 			else:
 				return True
 
-	def getTime(self, time):
+	def getTime(self, match_date):
 		timezone = strftime("%z")
 		if timezone.startswith('+') and timezone != '+0000':
 			dif = int(timezone.replace('+', '').replace('00', ''))
-			calc = (datetime.strptime(time, '%H:%M') + timedelta(hours=dif)).strftime('%H:%M')
+			calc = (datetime.strptime(match_date, '%H:%M - %Y-%m-%d') + timedelta(hours=dif)).strftime('%H:%M - %Y-%m-%d')
 		elif timezone == '+0000':
-			calc = time
+			calc = match_date
 		else:
 			dif = int(timezone.replace('-', '').replace('00', ''))
-			calc = (datetime.strptime(time, '%H:%M') - timedelta(hours=dif)).strftime('%H:%M')
+			calc = (datetime.strptime(match_date, '%H:%M - %Y-%m-%d') - timedelta(hours=dif)).strftime('%H:%M - %Y-%m-%d')
 		return calc
 
 	def updateCounter(self):
@@ -317,8 +314,8 @@ class FootOnSat(Screen):
 					match_date = datetime.strptime(match['date']+' '+match['time'],'%Y-%m-%d %H:%M')
 					last_3 = datetime.strptime((datetime.now() - timedelta(minutes=120)).strftime('%Y-%m-%d %H:%M'), "%Y-%m-%d %H:%M") 
 					if match_date > last_3:
-						list.append((str(match['match']), str(match['time']), str(match['compet']),
-									str(match['flags']['team1']), str(match['flags']['team2']), str(match['date'])))
+						list.append((str(match['match']), str(match['time'])+' - '+str(match['date']), str(match['compet']),
+									str(match['flags']['team1']), str(match['flags']['team2']), ))
 				except KeyError:
 					pass
 			self.matches = list
@@ -337,7 +334,7 @@ class FootOnSat(Screen):
 			self["list2"].l.setItemHeight(50)
 			self["list2"].l.setFont(0, gFont('Regular', 30))
 		index = self['list1'].getSelectionIndex()
-		try:
+		if len(self.matches) > 0:
 			self.match = self.matches[index][0]
 			for data in self.js['footonsat']:
 				try:
@@ -356,9 +353,6 @@ class FootOnSat(Screen):
 			self["list2"].setList([])
 			self["list2"].setList(gList)
 			self.channelData = list
-		except Exception as error:
-			print('No date found')
-			
 
 	def updateChannelData(self):
 		if len(self.channelData) > 0:

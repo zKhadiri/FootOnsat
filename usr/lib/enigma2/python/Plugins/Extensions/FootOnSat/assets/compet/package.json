@@ -229,6 +229,10 @@
             "banner": "afc-championsleague"
         },
         {
+            "label": "afc cup",
+            "banner": "afc-championsleague"
+        },
+        {
             "label": "english fa cup",
             "banner": "fa-cup"
         },
