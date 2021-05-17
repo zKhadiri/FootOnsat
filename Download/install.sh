@@ -126,12 +126,12 @@ fi
 
 if [ $OS = "Opensource" ]; then
     wget "--no-check-certificate" "https://github.com/ziko-ZR1/FootOnsat/blob/main/Download/enigma2-plugin-extensions-footonsat_$VERSION.ipk?raw=true" -O "/tmp/enigma2-plugin-extensions-footonsat_1.1_all.ipk";
-    opkg install /tmp/enigma2-plugin-extensions-footonsat_1.1_all.ipk
-    rm -f /tmp/enigma2-plugin-extensions-footonsat_1.1_all.ipk
+    opkg install /tmp/enigma2-plugin-extensions-footonsat_$VERSION.ipk
+    rm -f /tmp/enigma2-plugin-extensions-footonsat_$VERSION.ipk
 else
     wget "--no-check-certificate" "https://github.com/ziko-ZR1/FootOnsat/blob/main/Download/enigma2-plugin-extensions-footonsat_$VERSION.deb?raw=true" -O "/tmp/enigma2-plugin-extensions-footonsat_1.1.deb";
-    dpkg -i --force-overwrite /tmp/enigma2-plugin-extensions-footonsat_1.1.deb; apt-get install -f -y
-    rm -f /tmp/enigma2-plugin-extensions-footonsat_1.1.deb
+    dpkg -i --force-overwrite /tmp/enigma2-plugin-extensions-footonsat_$VERSION.deb; apt-get install -f -y
+    rm -f /tmp/enigma2-plugin-extensions-footonsat_$VERSION.deb
 fi
 
 if [ -d $PLUGIN_PATH  ]; then
