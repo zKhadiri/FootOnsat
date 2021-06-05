@@ -64,7 +64,8 @@ class FootOnSat(Screen):
 		self["counter"] = Label()
 		self["compet"] = Label()
 		titles = {"today":"Match Today","championsleague":"UEFA Champions League","europaleague":"UEFA Europa League","premierleague":"Premier League"
-					,"laliga":"La Liga Santander","seriea":"Serie A","bundesliga":"Bundesliga","ligue1":"Ligue 1","euro2020":"UEFA Euro 2020"}
+					,"laliga":"La Liga Santander","seriea":"Serie A","bundesliga":"Bundesliga","ligue1":"Ligue 1","euro2020":"UEFA Euro 2020",
+					"copaamerica":"CONMEBOL Copa América"}
 		self["compet"].setText(titles[link])
 		self["channel"] = Label()
 		self["sat"] = Label()
@@ -321,7 +322,7 @@ class FootOnSat(Screen):
 			self.matches = list
 			self.onWindowShow()
 		else:
-			self.session.openWithCallback(self.exit, MessageBox, _('Cannot load data list is empty !!'), MessageBox.TYPE_ERROR, timeout=10)
+			self.session.openWithCallback(self.exit, MessageBox, _('No schedules in this section at this time'), MessageBox.TYPE_ERROR, timeout=10)
 
 	def getChannels(self):
 		list = []
