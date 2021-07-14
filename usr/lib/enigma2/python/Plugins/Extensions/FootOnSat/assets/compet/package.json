@@ -291,6 +291,22 @@
         {
             "label": "conmebol copa américa",
             "banner": "copa-america"
+        },
+        {
+            "label": "uefa super cup",
+            "banner": "uefa-champions-league-sportsfhd"
+        },
+        {
+            "label": "friendly",
+            "banner": "FIFA"
+        },
+        {
+            "label": "uefa europa conference league",
+            "banner": "uefa-conference"
+        },
+        {
+            "label": "olympic games",
+            "banner": "olympic-games"
         }
     ]
 }
