@@ -4,7 +4,7 @@ from Components.MenuList import MenuList
 from Components.Label import Label 
 from Components.ActionMap import ActionMap
 from Screens.MessageBox import MessageBox
-from enigma import  eTimer, gRGB, loadPNG, gPixmapPtr, RT_WRAP, ePoint, RT_HALIGN_RIGHT, RT_HALIGN_LEFT, RT_VALIGN_CENTER, eListboxPythonMultiContent, gFont, getDesktop, eConsoleAppContainer
+from enigma import eTimer, gRGB, loadPNG, gPixmapPtr, RT_WRAP, ePoint, RT_HALIGN_RIGHT, RT_HALIGN_LEFT, RT_VALIGN_CENTER, eListboxPythonMultiContent, gFont, getDesktop, eConsoleAppContainer
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmap, MultiContentEntryPixmapAlphaTest, MultiContentEntryPixmapAlphaBlend
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS, fileExists
 from Components.Pixmap import Pixmap
@@ -42,14 +42,14 @@ class FootOnsatLauncher(Screen):
 
 	def Moveframe(self):
 		index = self['menu'].getSelectionIndex()
-		tag  = self.menu[index]
+		tag = self.menu[index]
 		for item in self.menu:
 			if item == tag:
-				self[item+'_on'].show()
-				self[item+'_off'].hide()
+				self[item + '_on'].show()
+				self[item + '_off'].hide()
 			else:
-				self[item+'_off'].show()
-				self[item+'_on'].hide()
+				self[item + '_off'].show()
+				self[item + '_on'].hide()
 
 	def ok(self):
 		index = self['menu'].getSelectionIndex()

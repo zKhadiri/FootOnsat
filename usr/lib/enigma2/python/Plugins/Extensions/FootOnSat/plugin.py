@@ -14,7 +14,7 @@ def sessionstart(reason, **kwargs):
         FootOnSatNotifDialog.startNotif(kwargs["session"])
 
 def Plugins(**kwargs):
-    Descriptors=[]
+    Descriptors = []
     Descriptors.append(PluginDescriptor(where=[PluginDescriptor.WHERE_SESSIONSTART], fnc=sessionstart))
     Descriptors.append(PluginDescriptor(name='FootOnSat', description='Football Fixtures', where=PluginDescriptor.WHERE_PLUGINMENU, icon='logo.png', fnc=main))
     return Descriptors
