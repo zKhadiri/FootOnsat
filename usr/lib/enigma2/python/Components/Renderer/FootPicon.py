@@ -1,4 +1,6 @@
-import os, re, unicodedata
+import os
+import re
+import unicodedata
 from Renderer import Renderer
 from enigma import ePixmap, eServiceReference , eEnv
 from ServiceReference import ServiceReference
@@ -10,7 +12,8 @@ try :
 except ImportError:
 	from Tools.Directories import SCOPE_CURRENT_SKIN as SCOPE_ACTIVE_SKIN
 from Components.Harddisk import harddiskmanager
-import six, sys
+import six
+import sys
 
 
 def getServiceRef(service):
