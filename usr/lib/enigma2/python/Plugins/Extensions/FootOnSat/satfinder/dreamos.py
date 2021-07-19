@@ -324,7 +324,7 @@ class Satfinder(ScanSetup, ServiceScan):
 
 	def createConfig(self, foo):
 		self.tuning_transponder = None
-		self.tuning_type = ConfigSelection(choices = [("manual_transponder", _("FootOnsat transponder")), ("predefined_transponder", _("FootOnsat Predefined transponder"))])
+		self.tuning_type = ConfigSelection(choices=[("manual_transponder", _("FootOnsat transponder")), ("predefined_transponder", _("FootOnsat Predefined transponder"))])
 		ScanSetup.createConfig(self, self.frontendData)
 		self.tuning_sat = getConfigSatlist(self.sat, nimmanager.getSatListForNim(self.feid))
 		self.scan_sat.system.value = eDVBFrontendParametersSatellite.System_DVB_S2
@@ -347,7 +347,7 @@ class Satfinder(ScanSetup, ServiceScan):
 			self.scan_sat.enable_mis, self.scan_sat.is_id, 
 			self.scan_sat.pls_mode, self.scan_sat.pls_code,
 			self.scan_sat.pilot, self.scan_sat.rolloff):
-			x.addNotifier(self.retune, initial_call = False)
+			x.addNotifier(self.retune, initial_call=False)
 
 		self.satList = []
 		self.scan_satselection = []

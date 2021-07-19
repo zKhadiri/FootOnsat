@@ -37,7 +37,7 @@ def GetWithAlternative(service):
 	return service.toString()
 
 class PiconLocator:
-	def __init__(self, piconDirectories = ['picon','picon_220x132']):
+	def __init__(self, piconDirectories=['picon','picon_220x132']):
 		harddiskmanager.on_partition_list_change.append(self.__onPartitionChange)
 		self.piconDirectories = piconDirectories
 		self.activePiconPath = None
