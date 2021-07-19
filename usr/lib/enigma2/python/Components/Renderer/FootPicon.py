@@ -24,9 +24,11 @@ def getServiceRef(service):
 	else:
 		return eServiceReference()
 
+
 def getAlternativeChannels(service):
 	alternativeServices = eServiceCenter.getInstance().list(getServiceRef(service))
 	return alternativeServices and alternativeServices.getContent("S", True)
+
 
 def GetWithAlternative(service):
 	service = getServiceRef(service)
@@ -35,6 +37,7 @@ def GetWithAlternative(service):
 		if channels:
 			return channels[0]
 	return service.toString()
+
 
 class PiconLocator:
 	def __init__(self, piconDirectories=['picon', 'picon_220x132']):
@@ -140,15 +143,21 @@ class PiconLocator:
 					pngname = self.findPicon(series)
 		return pngname
 
+
 piconLocator = None
+
 
 def initPiconPaths():
 	global piconLocator
 	piconLocator = PiconLocator()
+
+
 initPiconPaths()
+
 
 def getPiconName(serviceName):
 	return piconLocator.getPiconName(serviceName)
+
 
 class FootPicon(Renderer):
 	def __init__(self):

@@ -6,12 +6,15 @@ from enigma import addFont
 addFont("/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/fonts/miso-bold.ttf", "Myfont", 100, 1)
 addFont("/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/fonts/font_default.otf", "ArabicFont", 100, 1)
 
+
 def main(session, **kwargs):
     session.open(FootOnsatLauncher)
+
 
 def sessionstart(reason, **kwargs):
     if reason == 0:
         FootOnSatNotifDialog.startNotif(kwargs["session"])
+
 
 def Plugins(**kwargs):
     Descriptors = []

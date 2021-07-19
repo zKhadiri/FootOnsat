@@ -10,6 +10,7 @@ from Components.config import config, ConfigSelection, getConfigListEntry
 from Components.TuneTest import Tuner
 from Tools.Transponder import getChannelNumber, channel2frequency
 
+
 class Satfinder(ScanSetup, ServiceScan):
 
     def __init__(self, session, freq, symb, sat, polarization, fec):

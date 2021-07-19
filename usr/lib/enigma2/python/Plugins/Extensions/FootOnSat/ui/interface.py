@@ -479,7 +479,6 @@ class FootOnsatNotifScreen(Screen):
 		except:
 			self.onhideTimer_conn = self.onhideTimer.timeout.connect(self.hideNotif)
 
-
 	def checkforNotif(self):
 		if fileExists(DB_PATH):
 			self.deloldRecords()

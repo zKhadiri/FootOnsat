@@ -4,6 +4,7 @@ from time import time
 from Components.Element import cached, ElementError
 from time import localtime, strftime
 
+
 class FootNextEventTime(Poll, Converter, object):
     STARTTIME = 0
     ENDTIME = 1
