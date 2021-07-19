@@ -43,8 +43,8 @@ class Satfinder(ScanSetup, ServiceScan):
         self.setTitle(_('FootOnsat Signal Finder'))
         self['introduction'].setText(_('Press OK to scan'))
         self['Frontend'] = FrontendStatus(frontend_source=lambda: self.frontend, update_interval=100)
-        self['actions'] = ActionMap(['SetupActions', 'ColorActions'], {'save': self.keyGoScan, 
-           'ok': self.keyGoScan, 
+        self['actions'] = ActionMap(['SetupActions', 'ColorActions'], {'save': self.keyGoScan,
+           'ok': self.keyGoScan,
            'cancel': self.keyCancel}, -3)
         self.initcomplete = True
         self.session.postScanService = self.session.nav.getCurrentlyPlayingServiceOrGroup()

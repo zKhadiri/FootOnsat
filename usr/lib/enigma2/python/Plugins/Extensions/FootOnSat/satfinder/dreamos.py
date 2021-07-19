@@ -67,7 +67,7 @@ class Satfinder(ScanSetup, ServiceScan):
 		self.tuner = Tuner(self.frontend)
 		self['introduction'].setText(_('Press OK to scan'))
 		self['Frontend'] = FrontendStatus(frontend_source=lambda: self.frontend, update_interval=100)
-		self['actions'] = ActionMap(['SetupActions'], {'save': self.keyGoScan, 'ok': self.keyGoScan, 
+		self['actions'] = ActionMap(['SetupActions'], {'save': self.keyGoScan, 'ok': self.keyGoScan,
 		   'cancel': self.keyCancel}, -3)
 		self.initcomplete = True
 		self.onClose.append(self.__onClose)
@@ -341,10 +341,10 @@ class Satfinder(ScanSetup, ServiceScan):
 		for x in (self.tuning_sat, self.scan_sat.frequency,
 			self.scan_sat.inversion, self.scan_sat.symbolrate,
 			self.scan_sat.polarization, self.scan_sat.fec,
-			self.scan_sat.fec_s2_8psk, self.scan_sat.fec_s2_8psk_auto, 
+			self.scan_sat.fec_s2_8psk, self.scan_sat.fec_s2_8psk_auto,
 			self.scan_sat.fec_s2_qpsk, self.scan_sat.fec_s2_qpsk_auto,
 			self.scan_sat.modulation, self.scan_sat.modulation_auto,
-			self.scan_sat.enable_mis, self.scan_sat.is_id, 
+			self.scan_sat.enable_mis, self.scan_sat.is_id,
 			self.scan_sat.pls_mode, self.scan_sat.pls_code,
 			self.scan_sat.pilot, self.scan_sat.rolloff):
 			x.addNotifier(self.retune, initial_call=False)

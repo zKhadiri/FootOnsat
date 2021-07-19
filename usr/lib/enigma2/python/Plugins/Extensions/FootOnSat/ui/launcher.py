@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from Screens.Screen import Screen
 from Components.MenuList import MenuList
-from Components.Label import Label 
+from Components.Label import Label
 from Components.ActionMap import ActionMap
 from Screens.MessageBox import MessageBox
 from enigma import eTimer, gRGB, loadPNG, gPixmapPtr, RT_WRAP, ePoint, RT_HALIGN_RIGHT, RT_HALIGN_LEFT, RT_VALIGN_CENTER, eListboxPythonMultiContent, gFont, getDesktop, eConsoleAppContainer
@@ -55,7 +55,7 @@ class FootOnsatLauncher(Screen):
 		index = self['menu'].getSelectionIndex()
 		compet = self.menu[index]
 		self.session.open(FootOnSat, compet)
-				
+
 	def left(self):
 		self['menu'].up()
 		self.Moveframe()

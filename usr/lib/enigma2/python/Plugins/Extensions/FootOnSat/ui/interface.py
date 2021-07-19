@@ -312,7 +312,7 @@ class FootOnSat(Screen):
 			for match in self.js['footonsat']:
 				try:
 					match_date = datetime.strptime(match['date'] + ' ' + match['time'], '%Y-%m-%d %H:%M')
-					last_3 = datetime.strptime((datetime.now() - timedelta(minutes=120)).strftime('%Y-%m-%d %H:%M'), "%Y-%m-%d %H:%M") 
+					last_3 = datetime.strptime((datetime.now() - timedelta(minutes=120)).strftime('%Y-%m-%d %H:%M'), "%Y-%m-%d %H:%M")
 					if match_date > last_3:
 						list.append((str(match['match']), str(match['time']) + ' - ' + str(match['date']), str(match['compet']),
 									str(match['flags']['team1']), str(match['flags']['team2']), ))
@@ -455,7 +455,7 @@ FootOnSatNotifDialog = FootOnSatNotif()
 
 
 class FootOnsatNotifScreen(Screen):
-	
+
 	def __init__(self, session):
 		Screen.__init__(self, session)
 		skin = "assets/skin/HD/FootOnsatNotif.xml" if isHD() else "assets/skin/FHD/FootOnsatNotif.xml"
