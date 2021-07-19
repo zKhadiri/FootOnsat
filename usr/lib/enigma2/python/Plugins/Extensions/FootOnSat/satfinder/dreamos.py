@@ -36,7 +36,7 @@ class Satfinder(ScanSetup, ServiceScan):
 			print 'getResourceManager instance failed'
 		return False
 
-	def __init__(self, session, feid ,freq,symb,sat,polarization,fec):
+	def __init__(self, session, feid, freq, symb, sat, polarization, fec):
 		self.frontendData = None
 		self.initcomplete = False
 		self.feid = feid
@@ -66,8 +66,8 @@ class Satfinder(ScanSetup, ServiceScan):
 		self.scan_nims.save()
 		self.tuner = Tuner(self.frontend)
 		self['introduction'].setText(_('Press OK to scan'))
-		self['Frontend'] = FrontendStatus(frontend_source=lambda : self.frontend, update_interval=100)
-		self['actions'] = ActionMap(['SetupActions'], {'save': self.keyGoScan, 'ok': self.keyGoScan, 
+		self['Frontend'] = FrontendStatus(frontend_source=lambda: self.frontend, update_interval=100)
+		self['actions'] = ActionMap(['SetupActions'], {'save': self.keyGoScan, 'ok': self.keyGoScan,
 		   'cancel': self.keyCancel}, -3)
 		self.initcomplete = True
 		self.onClose.append(self.__onClose)
@@ -324,7 +324,7 @@ class Satfinder(ScanSetup, ServiceScan):
 
 	def createConfig(self, foo):
 		self.tuning_transponder = None
-		self.tuning_type = ConfigSelection(choices = [("manual_transponder", _("FootOnsat transponder")), ("predefined_transponder", _("FootOnsat Predefined transponder"))])
+		self.tuning_type = ConfigSelection(choices=[("manual_transponder", _("FootOnsat transponder")), ("predefined_transponder", _("FootOnsat Predefined transponder"))])
 		ScanSetup.createConfig(self, self.frontendData)
 		self.tuning_sat = getConfigSatlist(self.sat, nimmanager.getSatListForNim(self.feid))
 		self.scan_sat.system.value = eDVBFrontendParametersSatellite.System_DVB_S2
@@ -341,13 +341,13 @@ class Satfinder(ScanSetup, ServiceScan):
 		for x in (self.tuning_sat, self.scan_sat.frequency,
 			self.scan_sat.inversion, self.scan_sat.symbolrate,
 			self.scan_sat.polarization, self.scan_sat.fec,
-			self.scan_sat.fec_s2_8psk, self.scan_sat.fec_s2_8psk_auto, 
+			self.scan_sat.fec_s2_8psk, self.scan_sat.fec_s2_8psk_auto,
 			self.scan_sat.fec_s2_qpsk, self.scan_sat.fec_s2_qpsk_auto,
 			self.scan_sat.modulation, self.scan_sat.modulation_auto,
-			self.scan_sat.enable_mis, self.scan_sat.is_id, 
+			self.scan_sat.enable_mis, self.scan_sat.is_id,
 			self.scan_sat.pls_mode, self.scan_sat.pls_code,
 			self.scan_sat.pilot, self.scan_sat.rolloff):
-			x.addNotifier(self.retune, initial_call = False)
+			x.addNotifier(self.retune, initial_call=False)
 
 		self.satList = []
 		self.scan_satselection = []

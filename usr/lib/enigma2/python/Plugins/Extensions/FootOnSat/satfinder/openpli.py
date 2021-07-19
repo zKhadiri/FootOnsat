@@ -385,7 +385,7 @@ class Satfinder(ScanSetup, ServiceScan):
 			if self.satList[index] is None:
 				none_cnt += 1
 			if index == int(v):
-				return index-none_cnt
+				return index - none_cnt
 			index += 1
 		return -1
 
@@ -399,7 +399,7 @@ class Satfinder(ScanSetup, ServiceScan):
 		if self.tuning_type.value == "single_transponder":
 			transponder = (
 				self.scan_cab.frequency.value,
-				self.scan_cab.symbolrate.value*1000,
+				self.scan_cab.symbolrate.value * 1000,
 				self.scan_cab.modulation.value,
 				self.scan_cab.fec.value,
 				self.scan_cab.inversion.value
@@ -457,7 +457,7 @@ class Satfinder(ScanSetup, ServiceScan):
 			return
 		if self.tuning_type.value == "single_transponder":
 			transponder = (
-				self.scan_ats.frequency.value*1000,
+				self.scan_ats.frequency.value * 1000,
 				self.scan_ats.modulation.value,
 				self.scan_ats.inversion.value,
 				self.scan_ats.system.value,
@@ -849,12 +849,12 @@ class SatfinderExtra(Satfinder):
 		op = 0
 		bits = 4
 		for i in range(bits):
-			op += ((bcd >> 4*i) & 0x0F) * 10**i
+			op += ((bcd >> 4 * i) & 0x0F) * 10**i
 		if op > 1800:
 			op = (3600 - op) * -1
 		if w_e_flag == 0:
 			op *= -1
-		return "%0.1f%s" % (abs(op)/10., "W" if op < 0 else "E")
+		return "%0.1f%s" % (abs(op) / 10., "W" if op < 0 else "E")
 
 	def tunerLock(self):
 		frontendStatus = {}
@@ -953,8 +953,8 @@ class ServicesFound(Screen):
 			"back": self.close,
 			"red": self.close,
 			"up": self.pageUp,
-			"down":	self.pageDown,
-			"left":	self.pageUp,
+			"down": self.pageDown,
+			"left": self.pageUp,
 			"right": self.pageDown,
 		}, -2)
 

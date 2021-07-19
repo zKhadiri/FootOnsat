@@ -29,7 +29,7 @@ DB_PATH = '/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/db/footonsat.db'
 
 def readFromFile(filename):
 	_file = resolveFilename(SCOPE_PLUGINS, "Extensions/FootOnSat/{}".format(filename))
-	with open(_file,'r') as f:
+	with open(_file, 'r') as f:
 		return f.read()
 
 
@@ -61,9 +61,8 @@ class FootOnSat(Screen):
 			"cancel": self.exit,
 		}, -1)
 		self.link = link
-		titles = {"today":"Match Today","championsleague":"UEFA Champions League","europaleague":"UEFA Europa League","premierleague":"Premier League"
-					,"laliga":"La Liga Santander","seriea":"Serie A","bundesliga":"Bundesliga","ligue1":"Ligue 1","ConferenceLeague":"UEFA Conference League",
-     			"olympicgames":"Olympic Games Tokyo 2020"}
+		titles = {"today": "Match Today", "championsleague": "UEFA Champions League", "europaleague": "UEFA Europa League", "premierleague": "Premier League"					, "laliga": "La Liga Santander", "seriea": "Serie A", "bundesliga": "Bundesliga", "ligue1": "Ligue 1", "ConferenceLeague": "UEFA Conference League",
+     			"olympicgames": "Olympic Games Tokyo 2020"}
 		self["counter"] = Label()
 		self["compet"] = Label()
 		self["compet"].setText(titles[link])
@@ -118,23 +117,23 @@ class FootOnSat(Screen):
 				else:
 					notif = resolveFilename(SCOPE_PLUGINS, "Extensions/FootOnSat/assets/icon/{}/notif_off.png".format(pfolder))
 				if isHD():
-					res.append(MultiContentEntryText(pos=(0, 0), size=(0, 0), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER |RT_WRAP, text='', color=16753920, color_sel=15657130, border_width=3, border_color=806544))
+					res.append(MultiContentEntryText(pos=(0, 0), size=(0, 0), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text='', color=16753920, color_sel=15657130, border_width=3, border_color=806544))
 					res.append(MultiContentEntryPixmapAlphaBlend(pos=(250, 45), size=(40, 30), png=loadPNG(flagTeam1)))
 					res.append(MultiContentEntryPixmapAlphaBlend(pos=(750, 45), size=(40, 30), png=loadPNG(flagTeam2)))
 					res.append(MultiContentEntryPixmapAlphaBlend(pos=(50, 9), size=(190, 100), png=loadPNG(banner)))
 					res.append(MultiContentEntryPixmapAlphaBlend(pos=(-27, 32), size=(70, 50), png=loadPNG(notif)))
-					res.append(MultiContentEntryText(pos=(290, 40), size=(450, 36), font=0, color=16777215,color_sel=16777215, backcolor_sel=None, flags=RT_VALIGN_CENTER | RT_HALIGN_LEFT, text=str(match)))
-					res.append(MultiContentEntryText(pos=(250, 80), size=(450, 36), font=0, color=16777215, color_sel=16777215,backcolor_sel=None, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text="Kick-off : "+str(match_date)))
-					res.append(MultiContentEntryText(pos=(250, 2), size=(785, 36), font=0, color=16777215,color_sel=16777215, backcolor_sel=None, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text=str(compet)))
+					res.append(MultiContentEntryText(pos=(290, 40), size=(450, 36), font=0, color=16777215, color_sel=16777215, backcolor_sel=None, flags=RT_VALIGN_CENTER | RT_HALIGN_LEFT, text=str(match)))
+					res.append(MultiContentEntryText(pos=(250, 80), size=(450, 36), font=0, color=16777215, color_sel=16777215, backcolor_sel=None, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text="Kick-off : " + str(match_date)))
+					res.append(MultiContentEntryText(pos=(250, 2), size=(785, 36), font=0, color=16777215, color_sel=16777215, backcolor_sel=None, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text=str(compet)))
 				else:
-					res.append(MultiContentEntryText(pos=(0, 0), size=(0, 0), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER |RT_WRAP, text='', color=16753920, color_sel=15657130, border_width=3, border_color=806544))
+					res.append(MultiContentEntryText(pos=(0, 0), size=(0, 0), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text='', color=16753920, color_sel=15657130, border_width=3, border_color=806544))
 					res.append(MultiContentEntryPixmapAlphaBlend(pos=(420, 69), size=(40, 30), png=loadPNG(flagTeam1)))
 					res.append(MultiContentEntryPixmapAlphaBlend(pos=(1092, 69), size=(40, 30), png=loadPNG(flagTeam2)))
 					res.append(MultiContentEntryPixmapAlphaBlend(pos=(65, 6), size=(320, 163), png=loadPNG(banner)))
 					res.append(MultiContentEntryPixmapAlphaBlend(pos=(-20, 63), size=(70, 50), png=loadPNG(notif)))
-					res.append(MultiContentEntryText(pos=(467, 66), size=(570, 36), font=0, color=16777215,color_sel=16777215, backcolor_sel=None, flags=RT_VALIGN_CENTER | RT_HALIGN_LEFT, text=str(match)))
-					res.append(MultiContentEntryText(pos=(420, 120), size=(450, 36), font=0, color=16777215, color_sel=16777215,backcolor_sel=None, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text="Kick-off : "+str(match_date)))
-					res.append(MultiContentEntryText(pos=(420, 15), size=(785, 36), font=0, color=16777215,color_sel=16777215, backcolor_sel=None, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text=str(compet)))
+					res.append(MultiContentEntryText(pos=(467, 66), size=(570, 36), font=0, color=16777215, color_sel=16777215, backcolor_sel=None, flags=RT_VALIGN_CENTER | RT_HALIGN_LEFT, text=str(match)))
+					res.append(MultiContentEntryText(pos=(420, 120), size=(450, 36), font=0, color=16777215, color_sel=16777215, backcolor_sel=None, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text="Kick-off : " + str(match_date)))
+					res.append(MultiContentEntryText(pos=(420, 15), size=(785, 36), font=0, color=16777215, color_sel=16777215, backcolor_sel=None, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text=str(compet)))
 				gList.append(res)
 				res = []
 			self["list1"].setList(gList)
@@ -237,8 +236,8 @@ class FootOnSat(Screen):
 		duration_in_s = duration.total_seconds()
 		minutes = divmod(duration_in_s, 60)[0]
 		if minutes < 30:
-			first_notif = (dt_obj - timedelta(minutes=minutes/2)).strftime("%H:%M - %Y-%m-%d")
-			message = "Kick-off in {} minutes".format(int(minutes/2))
+			first_notif = (dt_obj - timedelta(minutes=minutes / 2)).strftime("%H:%M - %Y-%m-%d")
+			message = "Kick-off in {} minutes".format(int(minutes / 2))
 		else:
 			first_notif = (dt_obj - timedelta(minutes=30)).strftime("%H:%M - %Y-%m-%d")
 			message = "Kick-off in 30 minutes"
@@ -283,7 +282,7 @@ class FootOnSat(Screen):
 	def updateCounter(self):
 		if len(self.matches) > 0:
 			index = self['list1'].getSelectionIndex()
-			total_pages = int(math.ceil(float(len(self.matches))/4))
+			total_pages = int(math.ceil(float(len(self.matches)) / 4))
 			current_page = int(math.ceil((index) / 4)) + 1
 			self["counter"].setText("{}/{}".format(current_page, total_pages))
 
@@ -296,7 +295,7 @@ class FootOnSat(Screen):
 			if c['label'] in compet:
 				return resolveFilename(SCOPE_PLUGINS, "Extensions/FootOnSat/assets/compet/{}/{}.png".format(pfolder, c['banner']))
 		banner = random.choice(['default', 'default1', 'default2', 'default3'])
-		return resolveFilename(SCOPE_PLUGINS, "Extensions/FootOnSat/assets/compet/default/{}/{}.png".format(pfolder,banner))
+		return resolveFilename(SCOPE_PLUGINS, "Extensions/FootOnSat/assets/compet/default/{}/{}.png".format(pfolder, banner))
 
 	def callAPI(self):
 		url = 'http://cirtateam.selfip.com/footonsat/api/{}.json'.format(self.link)
@@ -312,10 +311,10 @@ class FootOnSat(Screen):
 		if self.js['footonsat'] != []:
 			for match in self.js['footonsat']:
 				try:
-					match_date = datetime.strptime(match['date']+' '+match['time'],'%Y-%m-%d %H:%M')
-					last_3 = datetime.strptime((datetime.now() - timedelta(minutes=120)).strftime('%Y-%m-%d %H:%M'), "%Y-%m-%d %H:%M") 
+					match_date = datetime.strptime(match['date'] + ' ' + match['time'], '%Y-%m-%d %H:%M')
+					last_3 = datetime.strptime((datetime.now() - timedelta(minutes=120)).strftime('%Y-%m-%d %H:%M'), "%Y-%m-%d %H:%M")
 					if match_date > last_3:
-						list.append((str(match['match']), str(match['time'])+' - '+str(match['date']), str(match['compet']),
+						list.append((str(match['match']), str(match['time']) + ' - ' + str(match['date']), str(match['compet']),
 									str(match['flags']['team1']), str(match['flags']['team2']), ))
 				except KeyError:
 					pass
@@ -342,11 +341,11 @@ class FootOnSat(Screen):
 					if data['related_to'] == self.match:
 						list.append((str(data['channel']), str(data['sat']), str(data['freq']), str(data['encry']), str(data['link'])))
 						if isHD():
-							res.append(MultiContentEntryText(pos=(0, 0), size=(0, 0), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER |RT_WRAP, text='', color=16753920, color_sel=15657130, border_width=3, border_color=806544))
-							res.append(MultiContentEntryText(pos=(7, 6), size=(510, 36), font=0, color=16777215, color_sel=16777215,backcolor_sel=None, flags=RT_VALIGN_CENTER | RT_HALIGN_LEFT, text=str(data['channel'])))
+							res.append(MultiContentEntryText(pos=(0, 0), size=(0, 0), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text='', color=16753920, color_sel=15657130, border_width=3, border_color=806544))
+							res.append(MultiContentEntryText(pos=(7, 6), size=(510, 36), font=0, color=16777215, color_sel=16777215, backcolor_sel=None, flags=RT_VALIGN_CENTER | RT_HALIGN_LEFT, text=str(data['channel'])))
 						else:
 							res.append(MultiContentEntryText(pos=(0, 0), size=(0, 0), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text='', color=16753920, color_sel=15657130, border_width=3, border_color=806544))
-							res.append(MultiContentEntryText(pos=(7, 6), size=(510, 40), font=0, color=16777215, color_sel=16777215,backcolor_sel=None, flags=RT_VALIGN_CENTER | RT_HALIGN_LEFT, text=str(data['channel'])))
+							res.append(MultiContentEntryText(pos=(7, 6), size=(510, 40), font=0, color=16777215, color_sel=16777215, backcolor_sel=None, flags=RT_VALIGN_CENTER | RT_HALIGN_LEFT, text=str(data['channel'])))
 						gList.append(res)
 						res = []
 				except KeyError:
@@ -408,18 +407,18 @@ class FootOnSat(Screen):
 			polarization = 'V' if 'V' in self.channelData[index][2] else 'H'
 
 			if len(nimList) == 0:
-				self.session.open(MessageBox, _('Satellite frontend Not found!'), MessageBox.TYPE_ERROR,timeout=10)
+				self.session.open(MessageBox, _('Satellite frontend Not found!'), MessageBox.TYPE_ERROR, timeout=10)
 			elif fileExists('/var/lib/dpkg/status'):
 				from Plugins.Extensions.FootOnSat.satfinder.dreamos import Satfinder
-				self.session.open(Satfinder,self.getfeid(), freq, symbolrate,sat, polarization, fec)
+				self.session.open(Satfinder, self.getfeid(), freq, symbolrate, sat, polarization, fec)
 			elif self.openatv:
 				from Plugins.Extensions.FootOnSat.satfinder.openatv import Satfinder
-				self.session.open(Satfinder, freq, symbolrate,sat, polarization, fec)
+				self.session.open(Satfinder, freq, symbolrate, sat, polarization, fec)
 			elif self.openpli:
 				from Plugins.Extensions.FootOnSat.satfinder.openpli import Satfinder
-				self.session.open(Satfinder, freq, symbolrate,sat, polarization, fec)
+				self.session.open(Satfinder, freq, symbolrate, sat, polarization, fec)
 			else:
-				self.session.open(MessageBox, 'Satfinder Is not compatible with this image', MessageBox.TYPE_ERROR,timeout=10)
+				self.session.open(MessageBox, 'Satfinder Is not compatible with this image', MessageBox.TYPE_ERROR, timeout=10)
 		else:
 			self['key_blue'].hide()
 
@@ -456,7 +455,7 @@ FootOnSatNotifDialog = FootOnSatNotif()
 
 
 class FootOnsatNotifScreen(Screen):
-	
+
 	def __init__(self, session):
 		Screen.__init__(self, session)
 		skin = "assets/skin/HD/FootOnsatNotif.xml" if isHD() else "assets/skin/FHD/FootOnsatNotif.xml"
@@ -479,7 +478,6 @@ class FootOnsatNotifScreen(Screen):
 			self.onhideTimer.timeout.get().append(self.hideNotif)
 		except:
 			self.onhideTimer_conn = self.onhideTimer.timeout.connect(self.hideNotif)
-
 
 	def checkforNotif(self):
 		if fileExists(DB_PATH):
@@ -512,7 +510,7 @@ class FootOnsatNotifScreen(Screen):
 					if today > record_date:
 						cur.execute("DELETE FROM LIVE_NOTIF WHERE DATE = ?", (row[0],))
 
-	def notify(self,match,compet,team1,team2,message=None):
+	def notify(self, match, compet, team1, team2, message=None):
 		if self.instance:
 			if FootOnSatNotifDialog.dialog is not None:
 				self['match'].setText(_(str(match)))

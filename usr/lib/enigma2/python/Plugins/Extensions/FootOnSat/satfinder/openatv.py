@@ -10,9 +10,10 @@ from Components.config import config, ConfigSelection, getConfigListEntry
 from Components.TuneTest import Tuner
 from Tools.Transponder import getChannelNumber, channel2frequency
 
+
 class Satfinder(ScanSetup, ServiceScan):
 
-    def __init__(self, session,freq,symb,sat,polarization,fec):
+    def __init__(self, session, freq, symb, sat, polarization, fec):
         self.initcomplete = False
         service = session and session.nav.getCurrentService()
         feinfo = service and service.frontendInfo()
@@ -41,9 +42,9 @@ class Satfinder(ScanSetup, ServiceScan):
         ScanSetup.__init__(self, session)
         self.setTitle(_('FootOnsat Signal Finder'))
         self['introduction'].setText(_('Press OK to scan'))
-        self['Frontend'] = FrontendStatus(frontend_source=lambda : self.frontend, update_interval=100)
-        self['actions'] = ActionMap(['SetupActions', 'ColorActions'], {'save': self.keyGoScan, 
-           'ok': self.keyGoScan, 
+        self['Frontend'] = FrontendStatus(frontend_source=lambda: self.frontend, update_interval=100)
+        self['actions'] = ActionMap(['SetupActions', 'ColorActions'], {'save': self.keyGoScan,
+           'ok': self.keyGoScan,
            'cancel': self.keyCancel}, -3)
         self.initcomplete = True
         self.session.postScanService = self.session.nav.getCurrentlyPlayingServiceOrGroup()
