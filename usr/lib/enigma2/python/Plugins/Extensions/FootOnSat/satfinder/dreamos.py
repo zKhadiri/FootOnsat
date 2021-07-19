@@ -36,7 +36,7 @@ class Satfinder(ScanSetup, ServiceScan):
 			print 'getResourceManager instance failed'
 		return False
 
-	def __init__(self, session, feid,freq,symb,sat,polarization,fec):
+	def __init__(self, session, feid, freq, symb, sat, polarization, fec):
 		self.frontendData = None
 		self.initcomplete = False
 		self.feid = feid

@@ -25,7 +25,7 @@ class FootOnsatLauncher(Screen):
 			'right': self.right,
 			'up': self.up,
 			'down': self.down,
-			'ok':self.ok,
+			'ok': self.ok,
 			"cancel": self.exit
 		}, -1)
 		self.menu = []
@@ -34,7 +34,7 @@ class FootOnsatLauncher(Screen):
 			if not child.get('name') == None:
 				if '_off' in child.get('name') or '_on' in child.get('name'):
 					self[child.get('name')] = Pixmap()
-					compet = child.get('name').replace('_off','').replace('_on','')
+					compet = child.get('name').replace('_off', '').replace('_on', '')
 					self.menu.append(compet) if compet not in self.menu else self.menu
 		self['menu'] = MenuList([])
 		self['menu'].l.setList(self.menu)
@@ -54,7 +54,7 @@ class FootOnsatLauncher(Screen):
 	def ok(self):
 		index = self['menu'].getSelectionIndex()
 		compet = self.menu[index]
-		self.session.open(FootOnSat,compet)
+		self.session.open(FootOnSat, compet)
 				
 	def left(self):
 		self['menu'].up()

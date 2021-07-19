@@ -12,7 +12,7 @@ from Tools.Transponder import getChannelNumber, channel2frequency
 
 class Satfinder(ScanSetup, ServiceScan):
 
-    def __init__(self, session,freq,symb,sat,polarization,fec):
+    def __init__(self, session, freq, symb, sat, polarization, fec):
         self.initcomplete = False
         service = session and session.nav.getCurrentService()
         feinfo = service and service.frontendInfo()
