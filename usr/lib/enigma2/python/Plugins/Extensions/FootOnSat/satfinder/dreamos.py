@@ -36,7 +36,7 @@ class Satfinder(ScanSetup, ServiceScan):
 			print 'getResourceManager instance failed'
 		return False
 
-	def __init__(self, session, feid ,freq,symb,sat,polarization,fec):
+	def __init__(self, session, feid,freq,symb,sat,polarization,fec):
 		self.frontendData = None
 		self.initcomplete = False
 		self.feid = feid
@@ -66,7 +66,7 @@ class Satfinder(ScanSetup, ServiceScan):
 		self.scan_nims.save()
 		self.tuner = Tuner(self.frontend)
 		self['introduction'].setText(_('Press OK to scan'))
-		self['Frontend'] = FrontendStatus(frontend_source=lambda : self.frontend, update_interval=100)
+		self['Frontend'] = FrontendStatus(frontend_source=lambda: self.frontend, update_interval=100)
 		self['actions'] = ActionMap(['SetupActions'], {'save': self.keyGoScan, 'ok': self.keyGoScan, 
 		   'cancel': self.keyCancel}, -3)
 		self.initcomplete = True

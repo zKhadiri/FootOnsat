@@ -61,8 +61,7 @@ class FootOnSat(Screen):
 			"cancel": self.exit,
 		}, -1)
 		self.link = link
-		titles = {"today":"Match Today","championsleague":"UEFA Champions League","europaleague":"UEFA Europa League","premierleague":"Premier League"
-					,"laliga":"La Liga Santander","seriea":"Serie A","bundesliga":"Bundesliga","ligue1":"Ligue 1","ConferenceLeague":"UEFA Conference League",
+		titles = {"today":"Match Today","championsleague":"UEFA Champions League","europaleague":"UEFA Europa League","premierleague":"Premier League"					,"laliga":"La Liga Santander","seriea":"Serie A","bundesliga":"Bundesliga","ligue1":"Ligue 1","ConferenceLeague":"UEFA Conference League",
      			"olympicgames":"Olympic Games Tokyo 2020"}
 		self["counter"] = Label()
 		self["compet"] = Label()

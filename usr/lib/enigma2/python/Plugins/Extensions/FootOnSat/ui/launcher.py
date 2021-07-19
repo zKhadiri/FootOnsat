@@ -4,12 +4,12 @@ from Components.MenuList import MenuList
 from Components.Label import Label 
 from Components.ActionMap import ActionMap
 from Screens.MessageBox import MessageBox
-from enigma import  eTimer , gRGB, loadPNG, gPixmapPtr, RT_WRAP, ePoint, RT_HALIGN_RIGHT, RT_HALIGN_LEFT, RT_VALIGN_CENTER, eListboxPythonMultiContent, gFont, getDesktop , eConsoleAppContainer
-from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmap, MultiContentEntryPixmapAlphaTest , MultiContentEntryPixmapAlphaBlend
-from Tools.Directories import resolveFilename, SCOPE_PLUGINS , fileExists
+from enigma import  eTimer, gRGB, loadPNG, gPixmapPtr, RT_WRAP, ePoint, RT_HALIGN_RIGHT, RT_HALIGN_LEFT, RT_VALIGN_CENTER, eListboxPythonMultiContent, gFont, getDesktop, eConsoleAppContainer
+from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmap, MultiContentEntryPixmapAlphaTest, MultiContentEntryPixmapAlphaBlend
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS, fileExists
 from Components.Pixmap import Pixmap
 from Tools.LoadPixmap import LoadPixmap
-from Plugins.Extensions.FootOnSat.ui.interface import FootOnSat , isHD , readFromFile
+from Plugins.Extensions.FootOnSat.ui.interface import FootOnSat, isHD, readFromFile
 from xml.etree import ElementTree as ET
 
 
@@ -21,7 +21,7 @@ class FootOnsatLauncher(Screen):
 		skin = "assets/skin/HD/launcher.xml" if isHD() else "assets/skin/FHD/launcher.xml"
 		self.skin = readFromFile(skin)
 		self["setupActions"] = ActionMap(["FootOnsatActions"],
-		{   'left': self.left,
+		{'left': self.left,
 			'right': self.right,
 			'up': self.up,
 			'down': self.down,
