@@ -307,6 +307,10 @@
         {
             "label": "olympic games",
             "banner": "olympic-games"
+        },
+        {
+            "label": "nba",
+            "banner": "nba"
         }
     ]
 }

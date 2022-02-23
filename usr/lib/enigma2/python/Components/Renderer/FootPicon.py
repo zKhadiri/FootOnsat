@@ -132,7 +132,7 @@ class PiconLocator:
 			if sys.version_info[0] >= 3:
 				name = six.ensure_str(unicodedata.normalize('NFKD', name).encode('ASCII', 'ignore'))
 			else:
-				name = unicodedata.normalize('NFKD', unicode(name, 'utf_8', errors='ignore')).encode('ASCII', 'ignore')
+				name = unicodedata.normalize('NFKD', str(name, 'utf_8', errors='ignore')).encode('ASCII', 'ignore')
 			name = re.sub('[^a-z0-9]', '', name.replace('&', 'and').replace('+', 'plus').replace('*', 'star').lower())
 			if len(name) > 0:
 				pngname = self.findPicon(name)

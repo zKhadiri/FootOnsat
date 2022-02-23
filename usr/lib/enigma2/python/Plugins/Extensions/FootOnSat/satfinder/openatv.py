@@ -161,7 +161,7 @@ class Satfinder(ScanSetup, ServiceScan):
         if slot.isMultiType():
             eDVBResourceManager.getInstance().setFrontendType(slot.frontend_id, 'dummy', False)
             types = slot.getMultiTypeList()
-            for FeType in types.itervalues():
+            for FeType in types.values():
                 if FeType in ('DVB-S', 'DVB-S2', 'DVB-S2X') and config.Nims[slot.slot].dvbs.configMode.value == 'nothing':
                     continue
                 elif FeType in ('DVB-T', 'DVB-T2') and config.Nims[slot.slot].dvbt.configMode.value == 'nothing':
