@@ -29,11 +29,11 @@ class Satfinder(ScanSetup, ServiceScan):
 				self.frontend = self.raw_channel.getFrontend()
 				if self.frontend:
 					return True
-				print 'getFrontend failed'
+				print('getFrontend failed')
 			else:
-				print 'getRawChannel failed'
+				print('getRawChannel failed')
 		else:
-			print 'getResourceManager instance failed'
+			print('getResourceManager instance failed')
 		return False
 
 	def __init__(self, session, feid, freq, symb, sat, polarization, fec):
@@ -83,7 +83,7 @@ class Satfinder(ScanSetup, ServiceScan):
 
 	def newConfig(self):
 		cur = self['config'].getCurrent()
-		print 'cur is', cur
+		print('cur is', cur)
 		if cur is None:
 			pass
 		elif cur == self.typeOfScanEntry or cur == self.tunerEntry or self.systemEntry and cur == self.systemEntry or self.modulationEntry and cur == self.modulationEntry or self.satelliteEntry and cur == self.satelliteEntry or self.enableMisEntry and cur == self.enableMisEntry or self.plsModeEntry and cur == self.plsModeEntry or self.plpidAutoEntry and cur == self.plpidAutoEntry:
