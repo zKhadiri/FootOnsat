@@ -298,7 +298,7 @@ class FootOnSat(Screen):
 		return resolveFilename(SCOPE_PLUGINS, "Extensions/FootOnSat/assets/compet/default/{}/{}.png".format(pfolder, banner))
 
 	def callAPI(self):
-		url = 'http://cirtateam.selfip.com/footonsat/api/{}.json'.format(self.link)
+		url = 'http://tunisia01.selfip.com/footonsat/api/{}.json'.format(self.link)
 		getPage(str.encode(url)).addCallback(self.getData).addErrback(self.error)
 
 	def error(self, error=None):
