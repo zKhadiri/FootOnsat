@@ -1,7 +1,7 @@
 import os
 import re
 import unicodedata
-from Renderer import Renderer
+from Components.Renderer.Renderer import Renderer
 from enigma import ePixmap, eServiceReference, eEnv
 from ServiceReference import ServiceReference
 # from Tools.Alternatives import GetWithAlternative
@@ -45,13 +45,12 @@ class PiconLocator:
 		self.piconDirectories = piconDirectories
 		self.activePiconPath = None
 		self.searchPaths = []
-		searchPaths = ('/data/%s/', eEnv.resolve('${datadir}/enigma2/%s/'),
-				'/media/cf/%s/',
-				'/media/usb/%s/',
-				'/media/sdcard/%s/',
-				'/usr/share/enigma2/',
-				'/',)
-		for mp in (searchPaths,):
+		searchPaths = ['/data/', eEnv.resolve('${datadir}/enigma2/'),
+				'/media/cf/',
+				'/media/usb/',
+				'/media/sdcard/',
+				'/',]
+		for mp in searchPaths:
 			self.__onMountpointAdded(mp)
 		for part in harddiskmanager.getMountedPartitions():
 			self.__onMountpointAdded(part.mountpoint)

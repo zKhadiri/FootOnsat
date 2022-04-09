@@ -311,6 +311,10 @@
         {
             "label": "nba",
             "banner": "nba"
+        },
+        {
+            "label": "formula 1",
+            "banner": "f1"
         }
     ]
 }

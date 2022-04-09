@@ -1,63 +1,39 @@
 <screen name="FootOnsatLauncher" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder" title="MenuLauncher">
-    <widget name="menu" zPosition="4" foregroundColorSelected="white" position="471,1140" size="1020,350" enableWrapAround="1" scrollbarMode="showNever" transparent="0" />
-    <widget name="today_off" position="150,275" size="240,240" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/Box_off.png" backgroundColor="#494f4f" zPosition="4" alphatest="blend" transparent="1" />
-    <widget name="today_on" position="127,251" size="285,285" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/Box_on.png" backgroundColor="#494f4f" zPosition="4" alphatest="blend" transparent="1" />
-    <widget name="championsleague_off" position="414,275" size="240,240" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/Box_off.png" backgroundColor="#494f4f" zPosition="4" alphatest="blend" transparent="1" />
-    <widget name="championsleague_on" position="391,251" size="285,285" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/Box_on.png" backgroundColor="#494f4f" zPosition="4" alphatest="blend" transparent="1" />
-    <widget name="europaleague_off" position="678,275" size="240,240" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/Box_off.png" backgroundColor="#494f4f" zPosition="4" alphatest="blend" transparent="1" />
-    <widget name="europaleague_on" position="655,251" size="285,285" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/Box_on.png" backgroundColor="#494f4f" zPosition="4" alphatest="blend" transparent="1" />
-    <widget name="ConferenceLeague_off" position="942,275" size="240,240" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/Box_off.png" backgroundColor="#494f4f" zPosition="4" alphatest="blend" transparent="1" />
-    <widget name="ConferenceLeague_on" position="920,251" size="285,285" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/Box_on.png" backgroundColor="#494f4f" zPosition="4" alphatest="blend" transparent="1" />
-    <widget name="premierleague_off" position="1208,275" size="240,240" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/Box_off.png" backgroundColor="#494f4f" zPosition="4" alphatest="blend" transparent="1" />
-    <widget name="premierleague_on" position="1183,251" size="285,285" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/Box_on.png" backgroundColor="#494f4f" zPosition="4" alphatest="blend" transparent="1" />
-    <widget name="laliga_off" position="1470,275" size="240,240" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/Box_off.png" backgroundColor="#494f4f" zPosition="4" alphatest="blend" transparent="1" />
-    <widget name="laliga_on" position="1450,251" size="285,285" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/Box_on.png" backgroundColor="#494f4f" zPosition="4" alphatest="blend" transparent="1" />
-    <widget name="seriea_off" position="150,565" size="240,240" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/Box_off.png" backgroundColor="#494f4f" zPosition="4" alphatest="blend" transparent="1" />
-    <widget name="seriea_on" position="127,539" size="285,285" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/Box_on.png" backgroundColor="#494f4f" zPosition="4" alphatest="blend" transparent="1" />
-    <widget name="bundesliga_off" position="414,565" size="240,240" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/Box_off.png" backgroundColor="#494f4f" zPosition="4" alphatest="blend" transparent="1" />
-    <widget name="bundesliga_on" position="391,539" size="285,285" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/Box_on.png" backgroundColor="#494f4f" zPosition="4" alphatest="blend" transparent="1" />
-    <widget name="ligue1_off" position="678,565" size="240,240" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/Box_off.png" backgroundColor="#494f4f" zPosition="4" alphatest="blend" transparent="1" />
-    <widget name="ligue1_on" position="655,539" size="285,285" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/Box_on.png" backgroundColor="#494f4f" zPosition="4" alphatest="blend" transparent="1" />
-    <widget name="nba_off" position="942,565" size="240,240" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/Box_off.png" backgroundColor="#494f4f" zPosition="4" alphatest="blend" transparent="1"/>
-    <widget name="nba_on" position="920,539" size="285,285" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/Box_on.png" backgroundColor="#494f4f" zPosition="4" alphatest="blend" transparent="1"/>
-    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/compet/icons/FHD/today_match.png" position="150,275" size="250,250" zPosition="6" alphatest="blend" />
-    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/compet/icons/FHD/championsleague.png" position="490,351" size="95,95" zPosition="6" alphatest="blend" />
-    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/compet/icons/FHD/europa-league.png" position="750,351" size="95,95" zPosition="6" alphatest="blend" />
-    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/compet/icons/FHD/Conference_League.png" position="940,273" size="250,250" zPosition="6" alphatest="blend"/>
-    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/compet/icons/FHD/premier-league.png" position="1255,325" size="145,145" zPosition="6" alphatest="blend" />
-    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/compet/icons/FHD/laliga.png" position="1520,325" size="145,145" zPosition="6" alphatest="blend" />
-    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/compet/icons/FHD/serie-a.png" position="138,560" size="250,250" zPosition="6" alphatest="blend" />
-    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/compet/icons/FHD/bundesliga.png" position="405,560" size="250,250" zPosition="6" alphatest="blend" />
-    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/compet/icons/FHD/ligue1.png" position="675,562" size="250,250" zPosition="6" alphatest="blend" />
-    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/compet/icons/FHD/nba.png" position="940,555" size="250,250" zPosition="6" alphatest="blend"/>
-    <eLabel text="Match" position="176,417" size="85,34" halign="center" font="Myfont;23" foregroundColor="white" backgroundColor="#494f4f" zPosition="6" transparent="1" />
-    <eLabel text="Today" position="271,417" size="85,34" halign="center" font="Myfont;23" foregroundColor="white" backgroundColor="#494f4f" zPosition="6" transparent="1" />
+    <widget name="menu" boxSize="240" activeSize="285" panelheight="570" itemPerPage="12" margin="30" itemPixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/Box_off.png" selPixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/Box_on.png" position="center,center" size="1660,585" transparent="1"/>
     <eLabel backgroundColor="#80000000" position="0,870" size="1920,130" />
     <eLabel backgroundColor="#494f4f" position="0,1000" size="1920,130" />
-    <widget backgroundColor="#80000000" font="Myfont;33" foregroundColor="white" halign="right" noWrap="1" position="403,944" render="Label" size="1180,40" source="session.Event_Now" transparent="1" valign="center" zPosition="5">
+    <widget backgroundColor="#80000000" font="FootFont;33" foregroundColor="white" halign="right" noWrap="1" position="403,944" render="Label" size="1180,40" source="session.Event_Now" transparent="1" valign="center" zPosition="5">
         <convert type="FootNextEventTime">TitleStartAndEndTime</convert>
     </widget>
-    <widget backgroundColor="#80000000" font="Myfont;33" foregroundColor="white" halign="right" noWrap="1" position="1130,890" render="Label" size="450,35" source="session.CurrentService" transparent="1" valign="center" zPosition="110">
+    <widget backgroundColor="#80000000" font="FootFont;33" foregroundColor="white" halign="right" noWrap="1" position="1130,890" render="Label" size="450,35" source="session.CurrentService" transparent="1" valign="center" zPosition="110">
         <convert type="ServiceName">Name</convert>
         <convert type="FootNextTextToUpper" />
     </widget>
-    <widget backgroundColor="#00999999" foregroundColor="#000E85A5" position="1435,982" render="Progress" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/prograss_top.png" size="150,5" source="session.Event_Now" transparent="0" zPosition="5">
+    <widget backgroundColor="#00999999" foregroundColor="#000E85A5" position="1435,982" render="Progress" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/prograss_top.png" size="150,5" source="session.Event_Now" transparent="0" zPosition="5">
         <convert type="EventTime">Progress</convert>
     </widget>
-    <widget alphatest="blend" position="1645,868" render="FootPicon" size="220,132" source="session.CurrentService" transparent="1" zPosition="5">
+    <widget alphatest="blend" position="1645,868" render="FootPicon" size="220,132" source="session.CurrentService" zPosition="5">
         <convert type="ServiceName">Reference</convert>
     </widget>
-    <ePixmap alphatest="off" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/play_topbg.png" position="0,0" size="1920,200" zPosition="-12" transparent="1" />
-    <widget backgroundColor="#ff2c2d2b" font="Myfont;110" foregroundColor="white" halign="right" position="1590,37" render="Label" size="150,150" source="global.CurrentTime" transparent="1" valign="top" zPosition="20">
+    <ePixmap alphatest="off" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/play_topbg.png" position="0,0" size="1920,200" zPosition="-12" transparent="1" />
+    <widget backgroundColor="#ff2c2d2b" font="FootFont;110" foregroundColor="white" halign="right" position="1590,37" render="Label" size="150,150" source="global.CurrentTime" transparent="1" valign="top" zPosition="20">
         <convert type="ClockToText">Format: %H</convert>
     </widget>
-    <widget backgroundColor="#ff2c2d2b" font="Myfont;55" foregroundColor="white" halign="left" position="1750,50" render="Label" size="100,55" source="global.CurrentTime" transparent="1" valign="top" zPosition="20">
+    <widget backgroundColor="#ff2c2d2b" font="FootFont;55" foregroundColor="white" halign="left" position="1750,50" render="Label" size="100,55" source="global.CurrentTime" transparent="1" valign="top" zPosition="20">
         <convert type="ClockToText">Format: %M</convert>
     </widget>
-    <widget backgroundColor="#ff2c2d2b" font="Myfont;30" foregroundColor="white" halign="left" position="1750,115" render="Label" size="100,50" source="global.CurrentTime" transparent="1" valign="top" zPosition="20">
+    <widget backgroundColor="#ff2c2d2b" font="FootFont;30" foregroundColor="white" halign="left" position="1750,115" render="Label" size="100,50" source="global.CurrentTime" transparent="1" valign="top" zPosition="20">
         <convert type="ClockToText">Format: %b %d</convert>
     </widget>
     <eLabel backgroundColor="white" position="1750,110" size="85,3" zPosition="20" />
-    <eLabel text="FootOnsat" position="59,58" size="177,48" zPosition="1" font="Myfont;48" halign="left" foregroundColor="white" backgroundColor="#ff2c2d2b" transparent="1" />
-    <ePixmap alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/FHD/ball.png" position="15,65" size="40,40" zPosition="-12" transparent="1" />
+    <eLabel text="FootOnsat" position="59,58" size="177,48" zPosition="1" font="FootFont;48" halign="left" foregroundColor="white" backgroundColor="#ff2c2d2b" transparent="1" />
+    <ePixmap alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/assets/icon/ball.png" position="15,65" size="40,40" zPosition="-12" transparent="1" />
+    <eLabel backgroundColor="red" position="0,1075" size="480,5" zPosition="2" />
+    <widget backgroundColor="#494f4f" font="FootFont;25" foregroundColor="foreground" halign="center" name="red" position="0,1000" size="480,75" transparent="0" valign="center" zPosition="2" />
+    <eLabel backgroundColor="green" position="480,1075" size="480,5" zPosition="2" />
+    <widget backgroundColor="#494f4f" font="FootFont;25" foregroundColor="foreground" halign="center" name="green" position="480,1000" size="480,75" transparent="0" valign="center" zPosition="2" />
+    <eLabel backgroundColor="yellow" position="960,1075" size="480,5" zPosition="2" />
+    <widget backgroundColor="#494f4f" font="FootFont;25" foregroundColor="foreground" halign="center" name="yellow" position="960,1000" size="480,75" transparent="0" valign="center" zPosition="2" />
+    <eLabel backgroundColor="blue" position="1440,1075" size="480,5" zPosition="2" />
+    <widget backgroundColor="#494f4f" font="FootFont;25" foregroundColor="foreground" halign="center" name="blue" position="1440,1000" size="480,75" transparent="0" valign="center" zPosition="2" />
 </screen>
