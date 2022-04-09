@@ -77,7 +77,7 @@ class FootOnsatLauncher(Screen):
 		self["menu"].setList(self.menuList)
 		self.selectionChanged()
 
-	def custom_sort(self, ordem_custom : list , origin : list) -> list:
+	def custom_sort(self, ordem_custom, origin):
 		list_order_equals = [c for c in ordem_custom if (c in origin)]
 		list_no_equals = [c for c in origin if (not c in ordem_custom)]
 		list_order = list_order_equals + list_no_equals
