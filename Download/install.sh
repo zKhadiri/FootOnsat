@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #wget -q "--no-check-certificate" https://raw.githubusercontent.com/ziko-ZR1/FootOnsat/main/Download/install.sh -O - | /bin/sh
-VERSION=1.5
+VERSION=1.6
 PLUGIN_PATH='/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat'
 DB_PATH='/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/db'
 TMP_DB='/tmp/footonsat.db'
