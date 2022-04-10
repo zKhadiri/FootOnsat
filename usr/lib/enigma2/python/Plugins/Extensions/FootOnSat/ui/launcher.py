@@ -3,8 +3,9 @@ from Screens.Screen import Screen
 from Components.ActionMap import ActionMap
 from Screens.MessageBox import MessageBox
 from Components.Label import Label
-from Components.config import config, ConfigSubsection, ConfigDictionarySet, NoSave
+from Components.config import config, ConfigSubsection, NoSave
 from Plugins.Extensions.FootOnSat.ui.interface import FootOnSat, readFromFile
+from Plugins.Extensions.FootOnSat.components.configs import ConfigDictionarySet
 from Components.FootMenu import FlexibleMenu
 from Plugins.Extensions.FootOnSat.__init__ import __version__
 from twisted.web.client import getPage
