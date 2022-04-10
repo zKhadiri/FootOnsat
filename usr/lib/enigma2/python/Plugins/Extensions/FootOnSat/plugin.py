@@ -22,7 +22,7 @@ def main(session, **kwargs):
         session.open(FootOnsatLauncher)
 
 def sessionstart(reason, **kwargs):
-    if reason == 0 and isHD():
+    if reason == 0 and not isHD():
         FootOnSatNotifDialog.startNotif(kwargs["session"])
 
 def Plugins(**kwargs):
