@@ -48,7 +48,7 @@ class FootOnsatLauncher(Screen):
 		self.onLayoutFinish.append(self.callAPI)
 
 	def callAPI(self):
-		url = 'http://tunisia01.selfip.com/footonsat/api'
+		url = 'http://ipkinstall.ath.cx/footonsat/api'
 		getPage(str.encode(url)).addCallback(self.getData).addErrback(self.error)
 
 	def getData(self, data):

@@ -183,15 +183,14 @@ class FlexibleMenu(GUIComponent):
 	def setL(self,refresh=False):
 		if refresh:
 			self.entries.clear()
+			self.setpage()
 			self.buildEntry()
 			return
 		if len(self.entries) > 0 and len(self.list) > 0:
 			res = [None]
-			try:
-				current = self.entries[self.list[self.current][0]]
-			except IndexError:
-				self.current -= 1
-				current = self.entries[self.list[self.current][0]]
+			if self.current > (len(self.list)-1):
+				self.current = (len(self.list)-1)
+			current = self.entries[self.list[self.current][0]]
 			current_page = current['page']
 			for _, value in self.entries.items():
 				if current_page == value['page'] and value != current:
@@ -231,11 +230,11 @@ class FlexibleMenu(GUIComponent):
 				self.pager_right.show()
 				self.pager_center.show()
 				self.pagelabel.show()
-			else:
-				self.pager_left.hide()
-				self.pager_right.hide()
-				self.pager_center.hide()
-				self.pagelabel.hide()
+		else:
+			self.pager_left.hide()
+			self.pager_right.hide()
+			self.pager_center.hide()
+			self.pagelabel.hide()
 
 	def getCurrentPage(self):
 		if len(self.entries) > 0 and len(self.list) >0:
