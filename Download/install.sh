@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #wget -q "--no-check-certificate" https://raw.githubusercontent.com/ziko-ZR1/FootOnsat/main/Download/install.sh -O - | /bin/sh
-VERSION=1.6
+VERSION=1.7
 PLUGIN_PATH='/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat'
 DB_PATH='/usr/lib/enigma2/python/Plugins/Extensions/FootOnSat/db'
 TMP_DB='/tmp/footonsat.db'
@@ -9,6 +9,7 @@ TMP_DB='/tmp/footonsat.db'
 if [ -f /etc/apt/apt.conf ] ; then
     STATUS='/var/lib/dpkg/status'
     OS='DreamOS'
+    VERSION=1.6
 elif [ -f /etc/opkg/opkg.conf ] ; then
    STATUS='/var/lib/opkg/status'
    OS='Opensource'
