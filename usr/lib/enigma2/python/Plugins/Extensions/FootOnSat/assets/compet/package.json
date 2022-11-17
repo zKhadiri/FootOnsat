@@ -1,6 +1,10 @@
 {
     "compet": [
         {
+            "label": "fifa world cup 2022",
+            "banner": "worldCup"
+        },
+        {
             "label": "fifa",
             "banner": "FIFA"
         },

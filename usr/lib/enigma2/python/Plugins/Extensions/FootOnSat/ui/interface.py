@@ -97,14 +97,14 @@ class FootOnSat(Screen):
 					notif = resolveFilename(SCOPE_PLUGINS, "Extensions/FootOnSat/assets/icon/notif_on.png")
 				else:
 					notif = resolveFilename(SCOPE_PLUGINS, "Extensions/FootOnSat/assets/icon/notif_off.png")
-				res.append(MultiContentEntryText(pos=(0, 0), size=(0, 0), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text='', color=16753920, color_sel=15657130, border_width=3, border_color=806544))
+				res.append(MultiContentEntryText())
 				res.append(MultiContentEntryPixmapAlphaBlend(pos=(420, 69), size=(40, 30), png=loadPNG(flagTeam1)))
 				res.append(MultiContentEntryPixmapAlphaBlend(pos=(1092, 69), size=(40, 30), png=loadPNG(flagTeam2)))
 				res.append(MultiContentEntryPixmapAlphaTest(pos=(65, 6), size=(320, 163), png=loadPNG(banner), flags=BT_SCALE))
 				res.append(MultiContentEntryPixmapAlphaBlend(pos=(-20, 63), size=(70, 50), png=loadPNG(notif)))
-				res.append(MultiContentEntryText(pos=(467, 66), size=(570, 36), font=0, color=16777215, color_sel=16777215, backcolor_sel=None, flags=RT_VALIGN_CENTER | RT_HALIGN_LEFT, text=str(match)))
-				res.append(MultiContentEntryText(pos=(420, 120), size=(450, 36), font=0, color=16777215, color_sel=16777215, backcolor_sel=None, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text="Kick-off : " + str(match_date)))
-				res.append(MultiContentEntryText(pos=(420, 15), size=(785, 36), font=0, color=16777215, color_sel=16777215, backcolor_sel=None, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text=str(compet)))
+				res.append(MultiContentEntryText(pos=(467, 66), size=(570, 36), font=0, flags=RT_VALIGN_CENTER | RT_HALIGN_LEFT, text=str(match)))
+				res.append(MultiContentEntryText(pos=(420, 120), size=(450, 36), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text="Kick-off : " + str(match_date)))
+				res.append(MultiContentEntryText(pos=(420, 15), size=(785, 36), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text=str(compet)))
 				gList.append(res)
 				res = []
 			self["list1"].setList(gList)
@@ -306,8 +306,8 @@ class FootOnSat(Screen):
 				try:
 					if data['related_to'] == self.match:
 						list.append((str(data['channel']), str(data['sat']), str(data['freq']), str(data['encry']), str(data['link'])))
-						res.append(MultiContentEntryText(pos=(0, 0), size=(0, 0), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text='', color=16753920, color_sel=15657130, border_width=3, border_color=806544))
-						res.append(MultiContentEntryText(pos=(7, 6), size=(510, 40), font=0, color=16777215, color_sel=16777215, backcolor_sel=None, flags=RT_VALIGN_CENTER | RT_HALIGN_LEFT, text=str(data['channel'])))
+						res.append(MultiContentEntryText())
+						res.append(MultiContentEntryText(pos=(7, 6), size=(510, 40), font=0, flags=RT_VALIGN_CENTER | RT_HALIGN_LEFT, text=str(data['channel'])))
 						gList.append(res)
 						res = []
 				except KeyError:

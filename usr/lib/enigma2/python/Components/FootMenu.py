@@ -238,11 +238,9 @@ class FlexibleMenu(GUIComponent):
 
 	def getCurrentPage(self):
 		if len(self.entries) > 0 and len(self.list) >0:
-			try:
-				current = self.entries[self.list[self.current][0]]
-			except IndexError:
-				self.current -= 1
-				current = self.entries[self.list[self.current][0]]
+			if self.current > (len(self.list)-1):
+				self.current = (len(self.list)-1)
+			current = self.entries[self.list[self.current][0]]
 			return current['page']
 		else:
 			return 0

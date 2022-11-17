@@ -3,9 +3,8 @@ from Screens.Screen import Screen
 from Components.ActionMap import ActionMap
 from Screens.MessageBox import MessageBox
 from Components.Label import Label
-from Components.config import config, ConfigSubsection, NoSave
+from Components.config import config, ConfigSubsection, ConfigDictionarySet, NoSave
 from Plugins.Extensions.FootOnSat.ui.interface import FootOnSat, readFromFile
-from Plugins.Extensions.FootOnSat.component.configs import ConfigDictionarySet
 from Components.FootMenu import FlexibleMenu
 from Plugins.Extensions.FootOnSat.__init__ import __version__
 from twisted.web.client import getPage
@@ -56,7 +55,7 @@ class FootOnsatLauncher(Screen):
 		if PY3:
 			data = data.decode('UTF-8')
 		compet = re.findall(r'<a\s+href=\"(.*?).json\">', data)
-		ordering = ["today", "championsleague", "europaleague", "ConferenceLeague", "premierleague", "laliga", "seriea",
+		ordering = ["today", "worldCup", "championsleague", "europaleague", "ConferenceLeague", "premierleague", "laliga", "seriea",
 		"bundesliga", "ligue1", "liganos","cafchampions", "afcchampions","championship", "laliga2", "nba"]
 		self.menuList = self.custom_sort(ordering, compet)
 
