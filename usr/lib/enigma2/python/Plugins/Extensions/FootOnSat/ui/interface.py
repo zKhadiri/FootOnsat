@@ -18,8 +18,14 @@ import math
 from time import strftime
 from datetime import datetime, timedelta
 from twisted.web.client import getPage, downloadPage
+from twisted.internet.ssl import ClientContextFactory
+from twisted.internet._sslverify import ClientTLSOptions
 from sqlite3 import connect
 from sys import version_info
+try:
+	from urllib.parse import urlparse
+except ImportError:
+	from urlparse import urlparse
 
 PY3 = version_info[0] == 3
 
@@ -32,6 +38,17 @@ def readFromFile(filename):
 	with open(_file, 'r') as f:
 		return f.read()
 
+
+class WebClientContextFactory(ClientContextFactory):
+	def __init__(self, url=None):
+		domain = urlparse(url).netloc
+		self.hostname = domain
+	
+	def getContext(self, hostname=None, port=None):
+		ctx = ClientContextFactory.getContext(self)
+		if self.hostname and ClientTLSOptions is not None: # workaround for TLS SNI
+			ClientTLSOptions(self.hostname, ctx)
+		return ctx
 
 class FootOnSat(Screen):
 
@@ -268,8 +285,9 @@ class FootOnSat(Screen):
 		return resolveFilename(SCOPE_PLUGINS, "Extensions/FootOnSat/assets/compet/default/FHD/{}.png".format(banner))
 
 	def callAPI(self):
-		url = 'http://ipkinstall.ath.cx/footonsat/api/{}.json'.format(self.link)
-		getPage(str.encode(url)).addCallback(self.getData).addErrback(self.error)
+		url = 'https://raw.githubusercontent.com/zKhadiri/footonsat-api/main/{}.json'.format(self.link)
+		sniFactory = WebClientContextFactory(url)
+		getPage(str.encode(url), contextFactory=sniFactory).addCallback(self.getData).addErrback(self.error)
 
 	def error(self, error=None):
 		if error:

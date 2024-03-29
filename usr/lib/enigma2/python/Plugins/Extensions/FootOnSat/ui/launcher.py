@@ -4,12 +4,12 @@ from Components.ActionMap import ActionMap
 from Screens.MessageBox import MessageBox
 from Components.Label import Label
 from Components.config import config, ConfigSubsection, NoSave
-from Plugins.Extensions.FootOnSat.ui.interface import FootOnSat, readFromFile
+from Plugins.Extensions.FootOnSat.ui.interface import FootOnSat, WebClientContextFactory, readFromFile
 from Plugins.Extensions.FootOnSat.component.configs import ConfigDictionarySet
 from Components.FootMenu import FlexibleMenu
 from Plugins.Extensions.FootOnSat.__init__ import __version__
 from twisted.web.client import getPage
-import re
+import json
 from sys import version_info
 
 PY3 = version_info[0] == 3
@@ -49,15 +49,14 @@ class FootOnsatLauncher(Screen):
 		self.onLayoutFinish.append(self.callAPI)
 
 	def callAPI(self):
-		url = 'http://ipkinstall.ath.cx/footonsat/api'
-		getPage(str.encode(url)).addCallback(self.getData).addErrback(self.error)
+		url = 'https://raw.githubusercontent.com/zKhadiri/footonsat-api/main/api.json'
+		sniFactory = WebClientContextFactory(url)
+		getPage(str.encode(url), contextFactory=sniFactory).addCallback(self.getData).addErrback(self.error)
 
 	def getData(self, data):
-		if PY3:
-			data = data.decode('UTF-8')
-		compet = re.findall(r'<a\s+href=\"(.*?).json\">', data)
+		compet = json.loads(data).keys()
 		ordering = ["today", "worldCup", "championsleague", "europaleague", "ConferenceLeague", "premierleague", "laliga", "seriea",
-		"bundesliga", "ligue1", "liganos","cafchampions", "afcchampions","championship", "laliga2", "nba"]
+		"bundesliga", "ligue1", "liganos","cafchampions", "afcchampions", "rsl", "euro2024", "copa2024","championship", "laliga2", "nba"]
 		self.menuList = self.custom_sort(ordering, compet)
 
 		self.sub_menu_sort = NoSave(ConfigDictionarySet())
